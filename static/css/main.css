@@ -1,0 +1,92 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border:1px magenta solid
+}
+.brand{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.burger div{
+     width: 20px;
+     height: 4px;
+     background-color: black;
+     margin: 3px 0px 3px 0px;
+     /*display: none;*/
+     filter: blur(0px);
+}
+.cross{
+    font-size: 2em;
+    margin: 8px;
+    color:rgb(245, 245, 245);
+    transition:0.5s;
+}
+.menu-container{
+    position: fixed;
+    top:0px;
+    right: 0px;
+    z-index: +1;
+    width: 0%;
+    height: 100vh;
+    
+    background-color: rgba(0,0,0,0.4);
+    justify-content: space-between;
+    display: flex;
+    transition:0.4s ease-in;
+    
+}
+
+.menu{
+    
+    width: 70%;
+    height: 100vh;
+    background-color:rgba(252, 252, 252, 1);
+    padding:10px;
+    transition:5s;
+}
+.menu h3{
+    margin-left: 10px;
+}
+
+.menu h3{
+    margin-top: 20px;
+    font-size: 22px;
+}
+.menu ul{
+    list-style: none;
+    margin-top: 2em;
+    font-size: 15px;
+}
+.bottom-line{
+    width: 90%;
+    border-bottom: 1px solid orange;
+    padding-bottom: 4.5px;
+}
+
+.menu li a{
+    padding: 12.5px 0 12.5px 0px;
+    display: block;
+    max-width:300px;
+    padding-left: 10px;
+    color:rgb(94, 94, 94);
+    background-color: none;
+    transition: 0.1s ease-in-out;
+}
+.menu li a:hover{
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+}
+.menu .active{
+    background-color: orange;
+    color:rgb(245, 245, 245);
+    font-weight: bold;
+}
