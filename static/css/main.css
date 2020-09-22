@@ -4,16 +4,36 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
 }
-nav{
+.container{
+  
+    max-width:1100px ;
+    
+    margin:0 auto
+}
+.container-flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+nav{
+    
     padding: 10px;
-    border:1px magenta solid
+    border:2px orange solid;
+    margin-bottom: 10px;
+    
 }
 .brand{
     font-weight: bold;
     font-size: 1.5em;
+    
+}
+.cart{
+    font-size: 22px;
+    
+    
+}
+.burger{
+    transition:0.1s ease-in 0.2s;
 }
 .burger div{
      width: 20px;
@@ -22,6 +42,7 @@ nav{
      margin: 3px 0px 3px 0px;
      /*display: none;*/
      filter: blur(0px);
+     
 }
 .cross{
     font-size: 2em;
@@ -34,23 +55,19 @@ nav{
     top:0px;
     right: 0px;
     z-index: +1;
-    width: 0%;
-    height: 100vh;
-    
+    width: 100vw;
     background-color: rgba(0,0,0,0.4);
     justify-content: space-between;
     display: flex;
-    transition:0.4s ease-in;
-    
+    transform: translatex(100%);
+    transition:0.35s ease-in;   
 }
 
-.menu{
-    
+.menu{    
     width: 70%;
     height: 100vh;
     background-color:rgba(252, 252, 252, 1);
     padding:10px;
-    transition:5s;
 }
 .menu h3{
     margin-left: 10px;
@@ -79,14 +96,127 @@ nav{
     color:rgb(94, 94, 94);
     background-color: none;
     transition: 0.1s ease-in-out;
+    
+}
+.menu li{
+    opacity: 0;
 }
 .menu li a:hover{
-    background-color: orange;
+    background-color: rgb(255, 115, 0);
     color: white;
     font-weight: bold;
 }
 .menu .active{
+      font-weight: bold;
+      color:white;
+      background-color: rgb(255, 115, 0);
+}
+
+.nav-active{
+    transform: translatex(0%);
+}
+.search {
+    border:1px solid black;
+    border-radius:15px;
+    overflow: hidden;
+}
+.search i{
     background-color: orange;
-    color:rgb(245, 245, 245);
-    font-weight: bold;
+    padding:5px 7px 5px 7px;
+    
+
+}
+input:focus{
+    border:none
+}
+.search input{
+    border:none;
+    height:100%;
+    text-align: center;
+}
+.search2{
+    display: none;
+}
+
+@keyframes navLink{
+    from{
+        opacity: 0;
+        transform: translatex(30%);
+    }
+    to{
+        opacity: 1;
+        transform: translatex(0px);
+    }
+}
+
+@media (min-width:907px){
+    .burger,.cross,.menu h3{
+        display: none;
+    }
+    .menu li {
+        opacity:1;
+        display: block;
+        height: 100%;
+     
+    }
+    .menu li a{
+        padding: 0px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px;
+        padding-top:0px;
+        padding-bottom: 0px;
+    }
+    .menu li a:hover{
+        background-color: rgb(255, 115, 0);
+        color: white;
+        font-weight: normal;
+    }
+    .menu-container{
+        position: relative;
+        transform: initial;
+        width: initial;
+        transition: none;
+        height: 40px;
+    }
+    .menu{
+        height: initial;
+        width: 100%;
+        padding: 0px;
+       
+    }
+    nav{
+        justify-content: space-around;
+        padding: 0 10px 0 10px;
+    }
+    .menu ul{
+        margin:0 1em 0 1em;
+        display: flex;
+        align-items: center;
+        height: 100%;       
+        max-width: 600px;
+        font-size:18px
+    }
+}
+
+@media (max-width:999px){
+    .menu ul{
+        font-size:16px ;
+    }
+}
+@media (max-width:959px){
+    .menu ul{
+        font-size:14.5px ;
+    }
+}
+@media (max-width:500px){
+    .search{
+        display:none;
+    }
+    .search2{
+        display:inline-block;
+    }    
+    
 }

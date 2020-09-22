@@ -1,45 +1,66 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}"/>  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>SuperGrocery</title>
-</head>
-<body>
-    <nav>
-        <div class="burger" onClick="showMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="brand">
-            <span><span style="color: rgb(238, 121, 11);">S</span>uper<span style="color: rgb(238, 121, 11);">G</span>rocery</span>
-        </div>
-        <div class="cart">
-            <i>cart</i>
-        </div>
-    </nav>
-    <div class="menu-container" id="menu" >
-        <div class="cross" onClick="showMenu()"><i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <div class="menu ">
-            <h3 class="bottom-line">Menu Links</h3>
-            <ul>
-                <li><a class="active">Home</a></li>
-                <li><a>Product Category</a></li>
-                <li><a>Contact Us</a></li>
-                <li><a>About</a></li>
-                <li><a>Profile</a></li>
-                <li><a>Log In</a></li>
-            </ul>
+  </head>
 
+  <body>
+    <nav >
+      <div class="container-flex container">
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="brand">
+        <span
+          ><span style="color: rgb(238, 121, 11)">S</span>uper<span
+            style="color: rgb(238, 121, 11)"
+            >G</span
+          >rocery</span
+        >
+      </div>
+
+      <div class="menu-container" id="menu">
+        <div class="cross"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="menu">
+          <h3 class="bottom-line">Menu Links</h3>
+          <ul>
+            <li><a class="active">Home</a></li>
+            <li><a>Product Category</a></li>
+            <li><a>Contact Us</a></li>
+            <li><a>About</a></li>
+            <li><a>Profile</a></li>
+            <li><a>Log In</a></li>
+          </ul>
         </div>
+      </div>
+      <div class="search">
+        <form>
+          <input type="text" placeholder="Search Product"/><i class="fa fa-search" aria-hidden="true"></i>
+        </form>
+      </div>
+      <div class="cart">
+       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </div>
     </div>
-    <script src="{% static 'js/main.js'%}">
-
-    </script>
-</body>
+    </nav>
+    <div style="display: flex;justify-content: center;">
+      <div class="search search2" align="center" >
+        <form>
+          <input type="text" placeholder="Search Product"/><i class="fa fa-search" aria-hidden="true"></i>
+        </form>
+      </div>
+    </div>
+    
+    <script src="{% static 'js/main.js'%}"></script>
+  </body>
 </html>
