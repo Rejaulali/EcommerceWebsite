@@ -20,21 +20,21 @@ const expandsearch = () => {
             selectDomOrNot = false;
             closesearchbtn = false;
         }
-       
+
     })
     searchinput.addEventListener('click', () => {
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
-            console.log(searchinput.value =="")
+            console.log(searchinput.value == "")
             selectDomOrNot = false
-            
+
 
         }
     })
     document.addEventListener('click', () => {
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
-            
+
             if (selectDomOrNot) {
                 searchinput.style.width = '0px';
                 brand.style.display = 'block'
@@ -50,13 +50,36 @@ const expandsearch = () => {
     let burger = document.querySelector('.burger');
     let navLinks = document.querySelector('.nav-links')
     let navlist = document.querySelectorAll('.nav-links li')
-    burger.addEventListener('click',()=>{
+    let line = document.querySelectorAll('.burger div')
+    let cross = false
+    burger.addEventListener('click', () => {
         navLinks.classList.toggle('nav-active');
+        line[0].classList.toggle('line1active')
+        line[1].classList.toggle('line2active')
+        line[2].classList.toggle('line3active')
         console.log("burger is listening")
         console.log(navlist)
-        navlist.forEach((link,index) =>{
-            link.style.animation = `linkanimation 0.2s ease forward ${index/9 + 0.1}s`
-        })
+        let index = 0;
+        if (cross) {
+            navlist.forEach((link) => {
+                link.style.animation = ""
+            })
+
+        }
+        else {
+            navlist.forEach((link) => {
+                if (link.classList != 'dropdown-link') {
+                    link.style.animation = `linkanimation 0.2s ease forwards ${index / 10 + 0.15}s`
+                    index++;
+                }
+                else {
+                    console.log(link.classList);
+                }
+
+            })
+            
+        }
+        cross = !cross;
 
     })
 
