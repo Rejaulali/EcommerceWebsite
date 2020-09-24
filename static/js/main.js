@@ -1,44 +1,86 @@
-const showMenu = () =>{
+const expandsearch = () => {
     console.log("this is called")
-    let burger = document.querySelector('.burger');
-    let cross = document.querySelector('.cross');
-    let menu = document.querySelector('.menu-container');
-    let navLinks = document.querySelectorAll('.menu li')
-    let dropdown = document.querySelector('.dropdown')
-    burger.addEventListener('click',() =>{
-        menu.classList.toggle('nav-active')
-        burger.style.filter = 'blur(5px)'
-        let index = 0;
-        navLinks.forEach((link) =>{
-            listclass= link.className;
-            if(!(listclass == 'dropdownlist'))
-            {
-                link.style.animation = `navLink 0.3s ease forwards ${index/9 + 0.3}s`;
-                index +=1;
+    let searchbox = document.querySelector('.search-box');
+    let searchinput = document.querySelector('.search-box input');
+    let brand = document.querySelector('.brand');
+    let searchbtn = document.querySelector('.search-box a')
+    let closesearchbtn = true;
+    let searchaction = false;
+    let selectDomOrNot = true;
+    searchbtn.addEventListener('click', (e) => {
+        var x = window.matchMedia("(max-width: 535px)");
+        if (x.matches) {
+            searchinput.style.width = '201px';
+            brand.style.display = 'none'
+            searchbtn.style.background = 'white'
+            if (closesearchbtn || searchinput.value == "") {
+                e.preventDefault();
             }
-        })
-    })
-    cross.addEventListener('click',() =>{
-        menu.classList.toggle('nav-active')
-        burger.style.filter = 'blur(0px)'
-        navLinks.forEach((link,index) =>{
-            link.style.animation = ""
-        })
-    })
-    let add = false
-    dropdown.addEventListener('click',() =>{
-       let ul = document.querySelector('.dropdownul');
-       add =!(add)
-       if(add)
-       {
-            ul.classList.add('dropactive')
+            searchaction = true
+            selectDomOrNot = false;
+            closesearchbtn = false;
         }
-       else{
-        ul.classList.remove('dropactive')
-       }
-       
-       console.log("this is called")
+
     })
-    
+    searchinput.addEventListener('click', () => {
+        var x = window.matchMedia("(max-width: 535px)");
+        if (x.matches) {
+            console.log(searchinput.value == "")
+            selectDomOrNot = false
+
+
+        }
+    })
+    document.addEventListener('click', () => {
+        var x = window.matchMedia("(max-width: 535px)");
+        if (x.matches) {
+
+            if (selectDomOrNot) {
+                searchinput.style.width = '0px';
+                brand.style.display = 'block'
+                searchbtn.style.background = 'none'
+                closesearchbtn = true;
+            }
+            selectDomOrNot = true
+
+        }
+
+    })
+
+    let burger = document.querySelector('.burger');
+    let navLinks = document.querySelector('.nav-links')
+    let navlist = document.querySelectorAll('.nav-links li')
+    let line = document.querySelectorAll('.burger div')
+    let cross = false
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+        line[0].classList.toggle('line1active')
+        line[1].classList.toggle('line2active')
+        line[2].classList.toggle('line3active')
+        console.log("burger is listening")
+        console.log(navlist)
+        let index = 0;
+        if (cross) {
+            navlist.forEach((link) => {
+                link.style.animation = ""
+            })
+
+        }
+        else {
+            navlist.forEach((link) => {
+                if (link.classList != 'dropdown-link') {
+                    link.style.animation = `linkanimation 0.2s ease forwards ${index / 10 + 0.15}s`
+                    index++;
+                }
+                else {
+                    console.log(link.classList);
+                }
+
+            })
+            
+        }
+        cross = !cross;
+
+    })
 }
-showMenu();
+expandsearch()

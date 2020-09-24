@@ -1,72 +1,84 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <title>SuperGrocery</title>
-  </head>
 
-  <body>
-    <nav >
-      <div class="container-flex container">
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="brand">
-        <span
-          ><span style="color: rgb(238, 121, 11)">S</span>uper<span
-            style="color: rgb(238, 121, 11)"
-            >G</span
-          >rocery</span
-        >
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>SuperGrocery</title>
+</head>
 
-      <div class="menu-container" id="menu">
-        <div class="cross"><i class="fa fa-times" aria-hidden="true"></i></div>
-        <div class="menu">
-          <h3 class="bottom-line">Menu Links</h3>
-          <ul>
-            <li><a class="active">Home</a></li>
-            <li class="dropdown"><a>Product Category</a>
-              <ul class="dropdownul">
-                <li class="dropdownlist"><a>category 1</a></li>
-                <li class="dropdownlist"><a>category 2</a></li>
-                <li class="dropdownlist"><a>category 3</a></li>
-              </ul>
-            </li>
-            <li><a>Contact Us</a></li>
-            <li><a>About</a></li>
-            <li><a>Profile</a></li>
-            <li><a>Log In</a></li>
-          </ul>
+<body>
+  <div class="toplabel">
+    <h4>Grocery Offer Zone Top Deals & Discounts</h4>
+  </div>
+  <nav>
+    <ul class="nav-wrapper">
+      <li class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </li>
+      <li class="brand">
+        <span><span style="color: rgb(238, 121, 11)">S</span>uper<span
+            style="color: rgb(238, 121, 11)">G</span>rocery</span>
+      </li>
+      <div class="nav-links">
+          <h3 class="nav-header">Menu Links</h3>
+          <li><a  href="#" class="active">Home</a></li>
+          <li><a href="#" >Product Category</a>
+            <ul class="dropdown">
+              <li class="dropdown-link" ><a href="#" >Category 1</a></li>
+              <li class="dropdown-link" ><a href="#" >Category 2sdff</a></li>
+              <li class="dropdown-link" ><a href="#" >Category 3</a></li>
+            </ul>
+          </li>
+          <li><a href="#" >Contact Us</a></li>
+          <li><a href="#" >About</a></li>
+          <li><a href="#" >Profile</a></li>
+          <li><a href="#" >Log In</a></li>
         </div>
-      </div>
-      <div class="search">
-        <form>
-          <input type="text" placeholder="Search Product"/><i class="fa fa-search" aria-hidden="true"></i>
-        </form>
-      </div>
-      <div class="cart">
-       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-      </div>
-    </div>
-    </nav>
-    <div style="display: flex;justify-content: center;">
-      <div class="search search2" align="center" >
-        <form>
-          <input type="text" placeholder="Search Product"/><i class="fa fa-search" aria-hidden="true"></i>
-        </form>
-      </div>
-    </div>
-    
-    <script src="{% static 'js/main.js'%}"></script>
-  </body>
+      
+      <li class="search-box">
+        
+          <input type="text" placeholder="Search Product" />
+          <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+        
+      </li>
+      <li class="cart">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </li>
+    </ul>
+  </nav>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <h1>hello world</h1>
+  <script src="{% static 'js/main.js'%}"></script>
+</body>
+
 </html>
