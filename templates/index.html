@@ -26,59 +26,114 @@
             style="color: rgb(238, 121, 11)">G</span>rocery</span>
       </li>
       <div class="nav-links">
-          <h3 class="nav-header">Menu Links</h3>
-          <li><a  href="#" class="active">Home</a></li>
-          <li><a href="#" >Product Category</a>
-            <ul class="dropdown">
-              <li class="dropdown-link" ><a href="#" >Category 1</a></li>
-              <li class="dropdown-link" ><a href="#" >Category 2sdff</a></li>
-              <li class="dropdown-link" ><a href="#" >Category 3</a></li>
-            </ul>
-          </li>
-          <li><a href="#" >Contact Us</a></li>
-          <li><a href="#" >About</a></li>
-          <li><a href="#" >Profile</a></li>
-          <li><a href="#" >Log In</a></li>
-        </div>
-      
+        <h3 class="nav-header">Menu Links</h3>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Product Category</a>
+          <ul class="dropdown">
+            <li class="dropdown-link"><a href="#">Category 1</a></li>
+            <li class="dropdown-link"><a href="#">Category 2sdff</a></li>
+            <li class="dropdown-link"><a href="#">Category 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Log In</a></li>
+      </div>
+
       <li class="search-box">
-        
-          <input type="text" placeholder="Search Product" />
-          <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
+
+        <input type="text" placeholder="Search Product" />
+        <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
           <i class="fa fa-search" aria-hidden="true"></i>
         </a>
-        
+
       </li>
       <li class="cart">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       </li>
     </ul>
   </nav>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
+  <div class="slide-container">
+    <div class="slides">
+      <div class="slide">
+        <img src="{% static 'images/slide-4.jpg'%}"/>
+        <div class="slide-cover">
+          <div class="title">
+            <h1>
+              Big <span style="color:rgb(255, 123, 0);">Save</span>
+            </h1>
+          </div>
+          <div class="offer">
+            Get flat <span class="offer-value">10%</span> cashback
+          </div>
+          <button class="offerbtn">
+            <span>Shop now</span>         </div>
+          </button>
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/slide-1.jpg'%}"/>
+        <div class="slide-cover">
+          <div class="title">
+            <h1>
+              healthy <span style="color:rgb(255, 123, 0);">Saving</span>
+            </h1>
+          </div>
+          <div class="offer">
+            Get <span class="offer-value">30%</span> off
+          </div>
+          <button class="offerbtn">
+            <span>Shop now</span>         </div>
+          </button>
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/slide-3.jpg'%}"/>
+        <div class="slide-cover">
+          <div class="title">
+            <h1>
+              Big <span style="color:rgb(255, 123, 0);">deal</span>
+            </h1>
+          </div>
+          <div class="offer">
+            Get best offer upto <span class="offer-value">10%</span>
+          </div>
+          <button class="offerbtn">
+            <span>Shop now</span>         </div>
+          </button>
+      </div>
+
+      <div class="slide">
+        <img src="{% static 'images/slide-2.jpg'%}"/>
+        <div class="slide-cover">
+          <div class="title">
+            <h1>
+              today's <span style="color:rgb(255, 123, 0);">Discount</span>
+            </h1>
+          </div>
+          <div class="offer">
+            get now <span class="offer-value">40%</span>Discounts
+          </div>
+          <button class="offerbtn">
+            <span>Shop now</span>         </div>
+          </button>
+      </div>
+    </div>
+    <div class="slide-controls">
+      <button class="arrow prev" id="prevBtn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+      <button class="arrow next"id="nextBtn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+    </div>
+    <div class="slide-overlay">
+      <div class="scrolldown">
+        <p>
+          Scroll Down For More
+        </p>
+        <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
   
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
-  <h1>hello world</h1>
   <script src="{% static 'js/main.js'%}"></script>
+  <script src="{% static 'js/slider.js'%}"></script>
 </body>
 
 </html>

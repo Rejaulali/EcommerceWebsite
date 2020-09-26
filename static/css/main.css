@@ -1,3 +1,4 @@
+@import "slider.css";
 *{
     margin:0px;
     padding:0px;
@@ -23,7 +24,8 @@ a{
     align-items: center;
     list-style: none;
     border-bottom:1px solid orange;
-    overflow: auto;    
+    overflow: auto; 
+    z-index: 10; 
     
 }
 .burger div{
@@ -68,6 +70,7 @@ a{
     background: lightgray;
     height:0px;
     overflow: hidden;
+    z-index: +10;
     transition: 0.2s ease-in-out;
 }
 .dropdown li{
@@ -135,7 +138,8 @@ li:hover > .dropdown{
     
     .nav-links{
         display: block;
-        position: fixed;
+        position: absolute;
+        z-index: 25;
         margin:0px;
         padding: 0px;
         width: 85%;

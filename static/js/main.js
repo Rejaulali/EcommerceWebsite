@@ -25,10 +25,7 @@ const expandsearch = () => {
     searchinput.addEventListener('click', () => {
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
-            console.log(searchinput.value == "")
             selectDomOrNot = false
-
-
         }
     })
     document.addEventListener('click', () => {
@@ -57,8 +54,6 @@ const expandsearch = () => {
         line[0].classList.toggle('line1active')
         line[1].classList.toggle('line2active')
         line[2].classList.toggle('line3active')
-        console.log("burger is listening")
-        console.log(navlist)
         let index = 0;
         if (cross) {
             navlist.forEach((link) => {
@@ -73,7 +68,7 @@ const expandsearch = () => {
                     index++;
                 }
                 else {
-                    console.log(link.classList);
+                    
                 }
 
             })
