@@ -1,0 +1,47 @@
+.price-slider-wrapper{
+    height:50px;
+    margin-top:10px;
+    position: relative;
+}
+.selected-range{
+    position: absolute;
+    margin-bottom: 1em;
+    color:rgb(4, 214, 91);
+    font-weight: bold;
+    top:0px;
+}
+.priceSlider{
+    position: absolute;
+    top:0px;
+    height: 8px;
+    background: rgb(0, 248, 215);
+    margin:0px auto;
+    border-radius: 100px;
+    top:30px;
+    display:block;
+}
+.priceSliderBackground{
+    position: absolute;
+    top:0px;
+    width: 100%;
+    height: 8px;
+    background: rgba(91, 245, 224, 0.445);
+    margin:0px auto;
+    border-radius: 100px;
+    top:30px;
+}
+.priceRange .thumb1,.thumb2{
+    position: absolute;
+    width:18px;
+    height: 18px;
+    top:24.5px;
+    background: orange;
+    border-radius:50%;
+    transition:box-shadow 0.3s;
+}
+.thumbactive{
+    box-shadow: 0px 0px 0px 7px rgba(255, 140, 8, 0.342);
+}
+.thumbactive2{
+    box-shadow: 0px 0px 0px 12px rgba(255, 140, 8, 0.45);
+}

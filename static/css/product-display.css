@@ -1,0 +1,158 @@
+@import "range-slider.css";
+.main-heading{
+    display: flex;
+    justify-content: center;
+    margin-top:2em;
+}
+.main-heading h1{
+    font-size: 1.7em;
+    font-weight: normal;
+    text-transform: capitalize;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5rem;
+}
+.main-part{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+.top-product{
+    width: 70%;
+}
+.filter-btn-wrapper{  
+    border-top:3px solid rgb(221, 221, 221);
+    border-bottom:3px solid rgb(221, 221, 221); 
+    padding:5px
+}
+.filter-btn{
+    display: flex;
+    margin-left:1em;
+    width:max-content;   
+    justify-content:center;
+    margin: 0px auto;
+    padding: 0 5px 0 5px;
+}
+.filter-btn button{
+    font-size:1rem;
+    padding:5px;
+    text-transform: capitalize;
+    outline: none;
+    
+}
+.filter-btn button:not(:last-child){
+    margin-right:0.5em;
+
+}
+.filterForm{
+    margin-top: 0.5em;
+    border-bottom:3px solid rgb(221, 221, 221);
+    padding:5px;
+    position: relative;
+    display:none;
+    width:100%;
+    padding:0px;
+    margin:0px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.input input{
+    margin-bottom: 10px;
+}
+.input span{
+    position: relative;
+    top:-1px; 
+}
+.filtersubmit{
+    border:none;
+    background:none;
+    color: rgb(0, 195, 255);
+    position:absolute;
+    cursor: pointer;
+    bottom:10px;
+    left: 48%;
+    
+}
+/*filter block clasess*/
+.priceRange{
+    display:none;
+}
+.foodPreference{
+    display:none;
+}
+.discount{
+    display:none;
+}
+.cuisine{
+    display:none;
+}
+.filter-search-box{
+    display:none;
+}
+
+/*  --------end-----------*/
+.filters h4{
+    display: none;
+}
+
+
+
+.filter-block-active{
+    display:block;
+    padding-bottom:2em;
+}
+.filter-btn-active{
+    background-color: #ff5722;
+    color:white;
+    font-weight: bold;
+    border:none;
+}
+.form-active{
+    display:block;
+}
+@media (min-width:500px){
+    .main-part{
+        flex-direction: row;
+        margin-top:2em;
+    }
+    .filters{
+        width:320px;
+        padding-right: 30px;
+        padding-top: 30px;
+        margin-right: 1em;
+        background:#f9f9f9;
+    }
+    .filter-btn-wrapper{
+        overflow-x:scroll;
+    }
+    .filterForm{
+        display:block;
+        border:none;
+    }
+    .filtersubmit{
+        display:none;
+        
+    }
+    .filterForm div{
+        display:block;
+    }
+    .filter-btn-wrapper{
+        display:none;
+    }
+    .filterForm h4{
+        display:block;
+        font-weight:normal;
+        color:#ff5722;
+        text-transform: capitalize;
+        font-size: 1.5em;
+        margin: 0.8em 0px
+    }
+}
+@media (min-width:975px){
+    .main-heading h1{
+        font-size: 2em;
+    }
+    .main-part{
+        flex-direction: row;
+        margin-top: 2em;
+    }
+}

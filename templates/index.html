@@ -11,129 +11,231 @@
 </head>
 
 <body>
-  <div class="toplabel">
-    <h4>Grocery Offer Zone Top Deals & Discounts</h4>
-  </div>
-  <nav>
-    <ul class="nav-wrapper">
-      <li class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </li>
-      <li class="brand">
-        <span><span style="color: rgb(238, 121, 11)">S</span>uper<span
-            style="color: rgb(238, 121, 11)">G</span>rocery</span>
-      </li>
-      <div class="nav-links">
-        <h3 class="nav-header">Menu Links</h3>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Product Category</a>
-          <ul class="dropdown">
-            <li class="dropdown-link"><a href="#">Category 1</a></li>
-            <li class="dropdown-link"><a href="#">Category 2sdff</a></li>
-            <li class="dropdown-link"><a href="#">Category 3</a></li>
-          </ul>
+  <div class="wrapper">
+    <div class="toplabel">
+      <h4>Grocery Offer Zone Top Deals & Discounts</h4>
+    </div>
+    <nav>
+      <ul class="nav-wrapper">
+        <li class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
         </li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Log In</a></li>
+        <li class="brand">
+          <span><span style="color: rgb(238, 121, 11)">S</span>uper<span
+              style="color: rgb(238, 121, 11)">G</span>rocery</span>
+        </li>
+        <div class="nav-links">
+          <h3 class="nav-header">Menu Links</h3>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Product Category</a>
+            <ul class="dropdown">
+              <li class="dropdown-link"><a href="#">Category 1</a></li>
+              <li class="dropdown-link"><a href="#">Category 2sdff</a></li>
+              <li class="dropdown-link"><a href="#">Category 3</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Log In</a></li>
+        </div>
+
+        <li class="search-box">
+
+          <input type="text" placeholder="Search Product" />
+          <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </a>
+
+        </li>
+        <li class="cart">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+    <div class="slide-container">
+      <div class="slides">
+        <div class="slide">
+          <img src="{% static 'images/slide-4.jpg'%}" />
+          <div class="slide-cover">
+            <div class="title">
+              <h1>
+                Big <span style="color:rgb(255, 123, 0);">Save</span>
+              </h1>
+            </div>
+            <div class="offer">
+              Get flat <span class="offer-value">10%</span> cashback
+            </div>
+            <button class="offerbtn">
+              <span>Shop now</span>
+          </div>
+          </button>
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/slide-1.jpg'%}" />
+          <div class="slide-cover">
+            <div class="title">
+              <h1>
+                healthy <span style="color:rgb(255, 123, 0);">Saving</span>
+              </h1>
+            </div>
+            <div class="offer">
+              Get <span class="offer-value">30%</span> off
+            </div>
+            <button class="offerbtn">
+              <span>Shop now</span>
+          </div>
+          </button>
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/slide-3.jpg'%}" />
+          <div class="slide-cover">
+            <div class="title">
+              <h1>
+                Big <span style="color:rgb(255, 123, 0);">deal</span>
+              </h1>
+            </div>
+            <div class="offer">
+              Get best offer upto <span class="offer-value">10%</span>
+            </div>
+            <button class="offerbtn">
+              <span>Shop now</span>
+          </div>
+          </button>
+        </div>
+
+        <div class="slide">
+          <img src="{% static 'images/slide-2.jpg'%}" />
+          <div class="slide-cover">
+            <div class="title">
+              <h1>
+                today's <span style="color:rgb(255, 123, 0);">Discount</span>
+              </h1>
+            </div>
+            <div class="offer">
+              get now <span class="offer-value">40%</span>Discounts
+            </div>
+            <button class="offerbtn">
+              <span>Shop now</span>
+          </div>
+          </button>
+        </div>
+      </div>
+      <div class="slide-controls">
+        <button class="arrow prev" id="prevBtn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+        <button class="arrow next" id="nextBtn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+      </div>
+      <div class="slide-overlay">
+        <div class="scrolldown">
+          <p>
+            Scroll Down For More
+          </p>
+          <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+        </div>
       </div>
 
-      <li class="search-box">
+      <div class="play-slide-btn">
 
-        <input type="text" placeholder="Search Product" />
-        <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </a>
-
-      </li>
-      <li class="cart">
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-      </li>
-    </ul>
-  </nav>
-  <div class="slide-container">
-    <div class="slides">
-      <div class="slide">
-        <img src="{% static 'images/slide-4.jpg'%}"/>
-        <div class="slide-cover">
-          <div class="title">
-            <h1>
-              Big <span style="color:rgb(255, 123, 0);">Save</span>
-            </h1>
-          </div>
-          <div class="offer">
-            Get flat <span class="offer-value">10%</span> cashback
-          </div>
-          <button class="offerbtn">
-            <span>Shop now</span>         </div>
-          </button>
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/slide-1.jpg'%}"/>
-        <div class="slide-cover">
-          <div class="title">
-            <h1>
-              healthy <span style="color:rgb(255, 123, 0);">Saving</span>
-            </h1>
-          </div>
-          <div class="offer">
-            Get <span class="offer-value">30%</span> off
-          </div>
-          <button class="offerbtn">
-            <span>Shop now</span>         </div>
-          </button>
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/slide-3.jpg'%}"/>
-        <div class="slide-cover">
-          <div class="title">
-            <h1>
-              Big <span style="color:rgb(255, 123, 0);">deal</span>
-            </h1>
-          </div>
-          <div class="offer">
-            Get best offer upto <span class="offer-value">10%</span>
-          </div>
-          <button class="offerbtn">
-            <span>Shop now</span>         </div>
-          </button>
-      </div>
-
-      <div class="slide">
-        <img src="{% static 'images/slide-2.jpg'%}"/>
-        <div class="slide-cover">
-          <div class="title">
-            <h1>
-              today's <span style="color:rgb(255, 123, 0);">Discount</span>
-            </h1>
-          </div>
-          <div class="offer">
-            get now <span class="offer-value">40%</span>Discounts
-          </div>
-          <button class="offerbtn">
-            <span>Shop now</span>         </div>
-          </button>
       </div>
     </div>
-    <div class="slide-controls">
-      <button class="arrow prev" id="prevBtn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
-      <button class="arrow next"id="nextBtn"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+    <div class="main-heading">
+      <h1>our top product</h1>
     </div>
-    <div class="slide-overlay">
-      <div class="scrolldown">
-        <p>
-          Scroll Down For More
-        </p>
-        <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+    <div class="main-part">
+      <div class="filters">
+        <div class="filter-btn-wrapper">
+          <div class="filter-btn">
+            <button id="priceRange"><span>price range <i class="fa fa-sort-desc" aria-hidden="true"></i></span></button>
+            <button id="foodPreference"><span>food-preference <i class="fa fa-sort-desc"
+                  aria-hidden="true"></i></span></button>
+            <button id="discount"><span>Discounts <i class="fa fa-sort-desc" aria-hidden="true"></i></span></button>
+            <button id="cuisine"><span>cuisine <i class="fa fa-sort-desc" aria-hidden="true"></i></span></button>
+          </div>
+        </div>
+        <form class="filterForm">
+          <div class="filter-search-box">
+            <h4>Search Here..</h4>
+            <div class="search-box" style="display: flex;justify-content: space-between;">
+              <input type="text" placeholder="Search Product" />
+              <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="priceRange">
+            <h4>price-range</h4>
+            <div class="price-slider-wrapper">
+              <div class="selected-range">
+                $<span class="min-price">0</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;
+                $<span class="max-price">6000</span>
+              </div>
+              <div class="priceSlider">
+              </div>
+              <div class="priceSliderBackground">
+              </div>
+              <div class="thumb1">
+              </div>
+              <div class="thumb2">
+              </div>
+            </div>                       
+          </div>
+          <div class="foodPreference">
+            <h4>food-preference</h4>
+            <div class="input">
+              <input type="checkbox" />&nbsp;&nbsp;<span>Vegeterian</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>Non-Vegeterian</span>
+            </div>
+          </div>
+          <div class="discount">
+            <h4>discount</h4>
+            <div class="input">
+              <input type="checkbox" />&nbsp;&nbsp;<span>5% or More</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>10% or More</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>20% or More</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>30% or More</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>40% or More</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>50% or More</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>60% or More</span>
+            </div>
+          </div>
+          <div class="cuisine">
+            <h4>cuisine</h4>
+            <div class="input">
+              <input type="checkbox" />&nbsp;&nbsp;<span>South India</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>Bangal</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>Gujrat</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>Bihar</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>North India</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>Chennai</span>
+              <br>
+              <input type="checkbox" />&nbsp;&nbsp;<span>Maharastra</span>
+            </div>
+          </div>
+          <button class="filtersubmit">done</button>
+        </form>
+      </div> 
+      <div class="top-product">
+        <h1>categories</h1>
       </div>
     </div>
   </div>
-  
-  <script src="{% static 'js/main.js'%}"></script>
+  <script type="module" src="{% static 'js/main.js'%}"></script>
   <script src="{% static 'js/slider.js'%}"></script>
+  <script src="{% static 'js/priceSlider.js'%}"></script>
 </body>
 
 </html>

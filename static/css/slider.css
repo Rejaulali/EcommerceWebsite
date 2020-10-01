@@ -1,8 +1,7 @@
 .slide-container{
-    position: relative;
+    position: relative; 
     overflow: hidden;
-    
-    
+
 }
 
 .slides{
@@ -14,8 +13,7 @@
 .slide img{
     width: 100vw;
     height: 300px;
-    object-fit: cover;
-    object-position: top;
+    object-fit: cover;object-position: top;
     /*display: none;*/
     
 }
@@ -95,7 +93,8 @@
 .scrolldown{
     position: absolute;
     text-align: center;
-    bottom: 5px;
+    bottom: 25px;
+    
 }
 .scrolldown p{
     font-size: 17px;
@@ -202,6 +201,30 @@
 .slide-cover .offerbtn:hover{
     background-color: rgb(3, 143, 143);
 }
+
+
+.play-slide-btn{
+    position: absolute;
+    display: flex;
+    bottom:0px;
+    justify-content: center;
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.play-slide-btn div{
+    width: 12px;
+    height: 12px;
+    border: 2px solid  #d86b05;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+    z-index: 5;
+    transition: 0.5s;
+
+}
+
 @media (min-width:975px){
     .slide img{
         height: 85vh;
@@ -244,3 +267,4 @@
         font-weight: normal;
     }
 }
+

@@ -1,3 +1,6 @@
+import {displayFilters} from './displayFilters.js'
+
+
 const expandsearch = () => {
     console.log("this is called")
     let searchbox = document.querySelector('.search-box');
@@ -79,3 +82,6 @@ const expandsearch = () => {
     })
 }
 expandsearch()
+
+
+displayFilters();
