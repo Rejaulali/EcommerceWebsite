@@ -89,6 +89,7 @@ li:hover > .dropdown{
     padding: 3px;
     border-radius:200px;
     display: flex;
+    width:fit-content;
   
  
 }
@@ -99,7 +100,7 @@ li:hover > .dropdown{
     color: rgb(255, 167, 116);
     line-height: px;
     font-weight: bold;
-    width: 201px;
+    width: 210px;
     font-size: 15px;
     padding-left: 3px;
 }
@@ -113,6 +114,7 @@ li:hover > .dropdown{
     width: 29px;
     height: 29px;
     border-radius: 50%;
+    margin:0px;
 }
 .cart{
     font-size: 25px;

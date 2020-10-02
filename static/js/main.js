@@ -1,5 +1,5 @@
 import {displayFilters} from './displayFilters.js'
-
+import {topProduct} from './topProduct.js'
 
 const expandsearch = () => {
     console.log("this is called")
@@ -85,3 +85,4 @@ expandsearch()
 
 
 displayFilters();
+topProduct();

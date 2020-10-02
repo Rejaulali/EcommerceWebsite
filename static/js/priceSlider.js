@@ -12,7 +12,8 @@ const rangeSlider = ()=>{
     let thumb1 = document.querySelector('.thumb1')
     let thumb2 = document.querySelector('.thumb2')
     let sliderMarginLeft = "";
-    let filterPadding = "0px"
+    let filterPadding = "0px";
+    let mainPartMargin = mainPart.offsetLeft;
     //getting window maxWidthPrice
     // we use this function for setting margin,padding of filter div
     const sliderWrapperWidth = () =>{
@@ -36,7 +37,6 @@ const rangeSlider = ()=>{
     sliderWrapper.style.width = `${sliderWrapperWidth()[0]}px`
     sliderWrapper.style.marginLeft = sliderMarginLeft;
     filter.style.padding = filterPadding;
-    console.log(sliderMarginLeft)
     ///////console.
     let pixelPerDoller = sliderWrapperWidth()[0]/(maxWidthPrice);
     let thumb1DefaultPosition = parseInt(minPrice.innerHTML)*pixelPerDoller - 10;
@@ -84,8 +84,7 @@ const rangeSlider = ()=>{
     function onTouchMove(event,thumb,index){
         weShouldStopDefaultScrollAndZoom =true;
         let touchPosition = event.touches[0].clientX
-        let left = touchPosition - parseInt(sliderMarginLeft)-10 - parseInt(getComputedStyle(filter).marginLeft) - parseInt(filterPadding);
-        console.log(left)
+        let left = touchPosition - parseInt(sliderMarginLeft)-10 - parseInt(getComputedStyle(filter).marginLeft) - parseInt(filterPadding) - mainPartMargin;
         if(index ==0)
         {
             if(left < parseInt(thumbs[1].style.left)-9){
@@ -129,10 +128,9 @@ const rangeSlider = ()=>{
         };
       }, { passive: false });      
       
-      
+      /* here  is my rough area begins */
 
-
-
+      /* ends*/
 
     //for mouse
     //formouse
@@ -154,7 +152,7 @@ const rangeSlider = ()=>{
     })
     sliderBack.addEventListener('mousedown',event =>{
         let touchPosition = event.clientX;
-        let left = touchPosition - parseInt(sliderMarginLeft)-10 - parseInt(getComputedStyle(filter).marginLeft) - parseInt(filterPadding);
+        let left = touchPosition - parseInt(sliderMarginLeft)-10 - parseInt(getComputedStyle(filter).marginLeft) - parseInt(filterPadding) - mainPartMargin;
         left1 = Math.abs(left - parseInt(thumbs[0].style.left));
         left2 = Math.abs(left - parseInt(thumbs[1].style.left));
         let index = left1 > left2 ? 1 : 0;
@@ -173,7 +171,7 @@ const rangeSlider = ()=>{
         event = event || window.event;
         event.preventDefault();
         let touchPosition = event.clientX
-        let left = touchPosition - parseInt(sliderMarginLeft)-10 - parseInt(getComputedStyle(filter).marginLeft) - parseInt(filterPadding);
+        let left = touchPosition - parseInt(sliderMarginLeft)-10 - parseInt(getComputedStyle(filter).marginLeft) - parseInt(filterPadding) - mainPartMargin;
         if(index ==0)
         {
             if(left < parseInt(thumbs[1].style.left)-9){
