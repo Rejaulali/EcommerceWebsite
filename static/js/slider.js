@@ -9,7 +9,9 @@ const  slidingEffect = ()=>{
     let slideId;
     let slideOriginalLength = slides.length;
     let arrowClicked = false;
-
+    // resize image on page refresh
+   
+   
     //adding javascript button in slide
     let playSlideBtn = document.querySelector('.play-slide-btn')
     for(let i=0;i<slides.length;i++){
@@ -123,9 +125,6 @@ const  slidingEffect = ()=>{
         
         moveSlideprev()
     })
-    
-      
-
 }
 
 slidingEffect()

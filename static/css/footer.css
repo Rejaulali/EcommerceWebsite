@@ -1,0 +1,208 @@
+.subscribe{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:20px;
+    background-color: #333333;
+}
+.subscribe div{
+}
+.email-input p{
+    color:white;
+    margin-bottom: 1em;
+    font-size: 15px;
+}
+.email-input .p1{
+    font-size:1.25em;
+    font-weight: bold;
+}
+.subscribe form{
+    width:100%;
+}
+.subscribe input{
+    border:none;
+    outline: none;
+    height: 2.8em;
+    padding:5px;
+    font-size: 1em;
+    width: 60%;
+}
+.subscribe button{
+    height: 3.2em;
+    width:35%;
+    background:rgb(255, 136, 0);
+}
+.subscribe .image{
+    margin-top: 1.5em;
+    border-radius: 5px;
+}
+.subscribe img{
+    width: 100%;
+    border-radius: 10px;
+}
+.description-in-footer{
+    padding:15px;
+    color:grey;
+    text-align: justify ;
+    letter-spacing:0.5px;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+}
+.services{
+    border-top:2px solid rgb(187, 184, 184);
+    border-bottom:2px solid rgb(187, 184, 184);
+    padding:15px 0 15px 0;
+    width: 90%;
+    font-weight: bold;
+    font-size: 1.border-radius: 5px;uto;
+}
+.services div{
+    display:flex;
+    margin-right:0.7em;
+    
+}
+.service-icon{
+    color:rgb(236, 106, 0);
+    font-size: 1.1em;
+}
+.services div:not(:last-child){
+    margin-bottom: 0.5em;
+    
+}
+.shortcuts{
+    width:90%;
+    display:flex;
+    flex-direction: column;
+}
+.shortcuts .categories,.shortcuts .quick-links{
+    display:flex;
+    flex-wrap: wrap;
+}
+.categories div,.quick-links div{
+    width: 50%;
+}
+.shortcuts h3{
+    width:100%;
+    margin:1em 0px 1em 0px;
+    font-weight: normal;
+    color:rgb(2, 197, 197);
+}
+.shortcuts ul{
+    list-style-type: none;
+    font-size: 13px;
+    color:rgb(114, 113, 113);
+}
+.shortcuts li{
+    margin-bottom: 0.7em;
+    cursor: pointer;
+}
+.description-in-footer h3{
+    color:grey;
+    margin-bottom: 0.5em;
+    font-size: 1.3em;
+}
+.description-in-footer img{
+    width: 60px;
+    margin-left:0.5em;
+    
+}
+.get-in-touch i{
+    color: rgb(236, 106, 0);
+}
+
+.social-media-icon{
+    display:flex;
+}
+.social-media-icon div{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin-left:1em;
+    width:40px;
+    height: 40px;
+    border-radius:50%;
+    cursor: pointer;
+    color:white;
+}
+
+footer{
+    display:flex;
+    justify-content:center;
+    color:white;
+    text-align: center;
+    padding:5px;
+    background:rgb(255, 98, 6);
+}
+
+.footer{
+    flex-direction: column;
+}
+@media (min-width:500px){
+    .services{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 1.5em;
+    }
+    .services div{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .service-icon{
+        position: relative;
+        font-size:1.5em;
+        top:+10px;
+    }
+    .shortcuts{
+        width:90%;
+        margin:0px auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:space-between
+    }
+    .description-in-footer{
+        font-size: 1em;
+    }
+    .subscribe{
+        flex-direction: row;
+        justify-content:space-between;
+        
+    }
+    .email-input{
+        width:60%;
+    }
+    .subscribe .image{
+        width:35%;
+        margin:0px;
+        padding:30px 0px 30px 0px;
+    }
+}
+@media (min-width:768px){
+    .services{
+        width: 100%;
+        font-size: 1.8em;
+    }
+    .service-icon{
+        font-size:1.8em;
+    }
+    .shortcuts ul{
+        
+        font-size: 16px;
+       
+    }
+    .description-in-footer{
+        font-size:1.3em;
+    }
+    .subscribe{
+        padding:0px 100px 0px 100px;
+    }
+    .shortcuts h3{
+        
+        font-size: 25px;
+      
+    }
+}
+
+

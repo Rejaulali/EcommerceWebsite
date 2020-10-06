@@ -1,6 +1,7 @@
 import {displayFilters} from './displayFilters.js'
 import {topProduct} from './topProduct.js'
-
+import {productSlider} from './productSlider.js'
+let reload = false;
 const expandsearch = () => {
     console.log("this is called")
     let searchbox = document.querySelector('.search-box');
@@ -82,7 +83,16 @@ const expandsearch = () => {
     })
 }
 expandsearch()
-
-
 displayFilters();
 topProduct();
+productSlider(1);
+productSlider(2);
+productSlider(3);
+window.addEventListener('resize',()=>{
+    if(reload){
+        location.reload()
+    }
+    else{
+        reload = true;
+    }
+})

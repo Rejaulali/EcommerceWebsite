@@ -12,31 +12,30 @@ const rangeSlider = ()=>{
     let thumb1 = document.querySelector('.thumb1')
     let thumb2 = document.querySelector('.thumb2')
     let sliderMarginLeft = "";
-    let filterPadding = "0px";
+    let filterPadding = getComputedStyle(filter).paddingLeft;
     let mainPartMargin = mainPart.offsetLeft;
     //getting window maxWidthPrice
     // we use this function for setting margin,padding of filter div
     const sliderWrapperWidth = () =>{
         let width =0;
         
-        if(screen.width < 376){
+        if(window.matchMedia("(max-width:376px)").matches){
             width = screen.width*0.8 < 250? screen.width * 0.8: 250;
             sliderMarginLeft = "30px";
         }
-        else if(screen.width < 500){
+        else if(window.matchMedia("(max-width:500px)").matches){
             width = 250
             sliderMarginLeft = "30px";
+            console.log("width:500px")
         }
         else{
             width = 200
-            sliderMarginLeft = "10px";
-            filterPadding = "20px"
+            sliderMarginLeft = "20px";
         }
         return [width,sliderMarginLeft,filterPadding];
     }
     sliderWrapper.style.width = `${sliderWrapperWidth()[0]}px`
     sliderWrapper.style.marginLeft = sliderMarginLeft;
-    filter.style.padding = filterPadding;
     ///////console.
     let pixelPerDoller = sliderWrapperWidth()[0]/(maxWidthPrice);
     let thumb1DefaultPosition = parseInt(minPrice.innerHTML)*pixelPerDoller - 10;
