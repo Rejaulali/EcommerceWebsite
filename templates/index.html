@@ -52,6 +52,14 @@
         </li>
         <li class="cart">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <div class="cart-badge">
+            <span>0</span>
+          </div>
+          <div class="bubble">
+            <ul>
+              
+            </ul>
+          </div>
         </li>
       </ul>
     </nav>
@@ -238,176 +246,46 @@
           </div>
           <div class="product-slider-container" id="product-slider1">
             <div class="product-slides">
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/almonds.jpeg'%}" />
-                      <p class="title">
-                        Almonds
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
+            {% for item in product%}
+              {%if item.category == "nuts"%}
+                <div class="product-slide">
+                  <div class="product-slide-inner">
+                    <div class="product" >
+                      <div class="image">
+                        <img src="/media/{{item.image}}" style="object-fit: none;"/>
+                        <p class="title"> 
+                          {{item.name}}                     
+                        </p>
+                        <div class="quick-view-wrapper">
+                          <div class="quick-view btn">
+                            Quick View
+                          </div>
+                        </div>
+                        <div class="badge">
+                          <span>New</span>
                         </div>
                       </div>
-                      <div class="badge">
-                        <span>New</span>
+                      <h4>
+                        {{item.name}}, {{item.quantity}}g
+                      </h4>
+                      <p class="rate">
+                        <span class="discount-rate">
+                          ${{item.discount_price}}
+                        </span>
+                        <span class="actual-rate">
+                          ${{item.actual_price}}
+                        </span>
+                      </p>
+                      <div class="add-to-cart-container">
+                        <button class="add-to-cart btn">
+                          <span>Add To Cart</span>
+                        </button>
                       </div>
-                    </div>
-                    <h4>
-                      Almonds, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $149.00
-                      </span>
-                      <span class="actual-rate">
-                        $280.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
+                    </div>  
                   </div>
                 </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/cashew.jpeg'%}" />
-                      <p class="title">
-                        Cashews
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>              
-                    </div>
-                    <h4>
-                      Cashew, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $420.00
-                      </span>
-                      <span class="actual-rate">
-                        $200.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/pista.jpeg'%}" />
-                      <p class="title">
-                        Pistachios
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>
-                    </div>
-                    <h4>
-                      Pistachios, 200g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $600.09
-                      </span>
-                      <span class="actual-rate">
-                        $520.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                      <p class="title">
-                        Almonds
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>
-                    </div>
-                    <h4>
-                      Almonds, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $149.00
-                      </span>
-                      <span class="actual-rate">
-                        $280.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div> 
-                </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                      <p class="title">
-                        Almonds
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>
-                    </div>
-                    <h4>
-                      Almonds, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $149.00
-                      </span>
-                      <span class="actual-rate">
-                        $280.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div> 
-                </div>
-              </div>
+              {%endif%}
+            {% endfor%}
             </div>
             <div class="left">
               <button class="arrow prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
@@ -429,180 +307,50 @@
         </div>
         <div class="featured-product-list">
           <div class="category">
-            <h2>Nuts</h2>
+            <h2>oils</h2>
           </div>
           <div class="product-slider-container" id="product-slider2">
             <div class="product-slides">
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/almonds.jpeg'%}" />
-                      <p class="title">
-                        Almonds
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
+            {% for item in product%}
+              {%if item.category == "oil"%}
+                <div class="product-slide">
+                  <div class="product-slide-inner">
+                    <div class="product">
+                      <div class="image">
+                        <img src="/media/{{item.image}}" style="object-fit: none;"/>
+                        <p class="title"> 
+                          {{item.name}}                     
+                        </p>
+                        <div class="quick-view-wrapper">
+                          <div class="quick-view btn">
+                            Quick View
+                          </div>
+                        </div>
+                        <div class="badge">
+                          <span>New</span>
                         </div>
                       </div>
-                      <div class="badge">
-                        <span>New</span>
+                      <h4>
+                        {{item.name}}, {{item.quantity}}g
+                      </h4>
+                      <p class="rate">
+                        <span class="discount-rate">
+                          ${{item.discount_price}}
+                        </span>
+                        <span class="actual-rate">
+                          ${{item.actual_price}}
+                        </span>
+                      </p>
+                      <div class="add-to-cart-container">
+                        <button class="add-to-cart btn">
+                          <span>Add To Cart</span>
+                        </button>
                       </div>
-                    </div>
-                    <h4>
-                      Almonds, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $149.00
-                      </span>
-                      <span class="actual-rate">
-                        $280.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
+                    </div>  
                   </div>
                 </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/cashew.jpeg'%}" />
-                      <p class="title">
-                        Cashews
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>              
-                    </div>
-                    <h4>
-                      Cashew, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $420.00
-                      </span>
-                      <span class="actual-rate">
-                        $200.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/pista.jpeg'%}" />
-                      <p class="title">
-                        Pistachios
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>
-                    </div>
-                    <h4>
-                      Pistachios, 200g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $600.09
-                      </span>
-                      <span class="actual-rate">
-                        $520.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                      <p class="title">
-                        Almonds
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>
-                    </div>
-                    <h4>
-                      Almonds, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $149.00
-                      </span>
-                      <span class="actual-rate">
-                        $280.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div> 
-                </div>
-              </div>
-              <div class="product-slide">
-                <div class="product-slide-inner">
-                  <div class="product">
-                    <div class="image">
-                      <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                      <p class="title">
-                        Almonds
-                      </p>
-                      <div class="quick-view-wrapper">
-                        <div class="quick-view btn">
-                          Quick View
-                        </div>
-                      </div>
-                      <div class="badge">
-                        <span>New</span>
-                      </div>
-                    </div>
-                    <h4>
-                      Almonds, 100g
-                    </h4>
-                    <p class="rate">
-                      <span class="discount-rate">
-                        $149.00
-                      </span>
-                      <span class="actual-rate">
-                        $280.00
-                      </span>
-                    </p>
-                    <button class="add-to-cart btn">
-                      <span>Add To Cart</span>
-                    </button>
-                  </div> 
-                </div>
-              </div>
+              {%endif%}
+            {% endfor%}
             </div>
             <div class="left">
               <button class="arrow prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
@@ -716,13 +464,14 @@
       <div class="featured-product-list">
         <div class="product-slider-container" id="product-slider3">
           <div class="product-slides">
+            {% for item in product%}
             <div class="product-slide">
               <div class="product-slide-inner">
                 <div class="product">
                   <div class="image">
-                    <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                    <p class="title">
-                      Almonds
+                    <img src="/media/{{item.image}}" style="object-fit: none;"/>
+                    <p class="title"> 
+                      {{item.name}}                     
                     </p>
                     <div class="quick-view-wrapper">
                       <div class="quick-view btn">
@@ -734,158 +483,25 @@
                     </div>
                   </div>
                   <h4>
-                    Almonds, 100g
+                    {{item.name}}, {{item.quantity}}g
                   </h4>
                   <p class="rate">
                     <span class="discount-rate">
-                      $149.00
+                      ${{item.discount_price}}
                     </span>
                     <span class="actual-rate">
-                      $280.00
+                      ${{item.actual_price}}
                     </span>
                   </p>
-                  <button class="add-to-cart btn">
-                    <span>Add To Cart</span>
-                  </button>
+                  <div class="add-to-cart-container">
+                    <button class="add-to-cart btn">
+                      <span>Add To Cart</span>
+                    </button>
+                  </div>
                 </div>  
               </div>
             </div>
-            <div class="product-slide">
-              <div class="product-slide-inner">
-                <div class="product">
-                  <div class="image">
-                    <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                    <p class="title">
-                      Almonds
-                    </p>
-                    <div class="quick-view-wrapper">
-                      <div class="quick-view btn">
-                        Quick View
-                      </div>
-                    </div>
-                    <div class="badge">
-                      <span>New</span>
-                    </div>
-                  </div>
-                  <h4>
-                    Almonds, 100g
-                  </h4>
-                  <p class="rate">
-                    <span class="discount-rate">
-                      $149.00
-                    </span>
-                    <span class="actual-rate">
-                      $280.00
-                    </span>
-                  </p>
-                  <button class="add-to-cart btn">
-                    <span>Add To Cart</span>
-                  </button>
-                </div> 
-              </div>
-            </div>
-            <div class="product-slide">
-              <div class="product-slide-inner">
-                <div class="product">
-                  <div class="image">
-                    <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                    <p class="title">
-                      Almonds
-                    </p>
-                    <div class="quick-view-wrapper">
-                      <div class="quick-view btn">
-                        Quick View
-                      </div>
-                    </div>
-                    <div class="badge">
-                      <span>New</span>
-                    </div>
-                  </div>
-                  <h4>
-                    Almonds, 100g
-                  </h4>
-                  <p class="rate">
-                    <span class="discount-rate">
-                      $149.00
-                    </span>
-                    <span class="actual-rate">
-                      $280.00
-                    </span>
-                  </p>
-                  <button class="add-to-cart btn">
-                    <span>Add To Cart</span>
-                  </button>
-                </div> 
-              </div>
-            </div>
-            <div class="product-slide">
-              <div class="product-slide-inner">
-                <div class="product">
-                  <div class="image">
-                    <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                    <p class="title">
-                      Almonds
-                    </p>
-                    <div class="quick-view-wrapper">
-                      <div class="quick-view btn">
-                        Quick View
-                      </div>
-                    </div>
-                    <div class="badge">
-                      <span>New</span>
-                    </div>
-                  </div>
-                  <h4>
-                    Almonds, 100g
-                  </h4>
-                  <p class="rate">
-                    <span class="discount-rate">
-                      $149.00
-                    </span>
-                    <span class="actual-rate">
-                      $280.00
-                    </span>
-                  </p>
-                  <button class="add-to-cart btn">
-                    <span>Add To Cart</span>
-                  </button>
-                </div> 
-              </div>
-            </div>
-            <div class="product-slide">
-              <div class="product-slide-inner">
-                <div class="product">
-                  <div class="image">
-                    <img src="{% static 'images/oil1.jpeg'%}" style="object-fit: none;"/>
-                    <p class="title">
-                      Almonds
-                    </p>
-                    <div class="quick-view-wrapper">
-                      <div class="quick-view btn">
-                        Quick View
-                      </div>
-                    </div>
-                    <div class="badge">
-                      <span>New</span>
-                    </div>
-                  </div>
-                  <h4>
-                    Almonds, 100g
-                  </h4>
-                  <p class="rate">
-                    <span class="discount-rate">
-                      $149.00
-                    </span>
-                    <span class="actual-rate">
-                      $280.00
-                    </span>
-                  </p>
-                  <button class="add-to-cart btn">
-                    <span>Add To Cart</span>
-                  </button>
-                </div> 
-              </div>
-            </div>
+            {% endfor%}
           </div>
           <div class="left">
             <button class="arrow prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>

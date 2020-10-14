@@ -1,6 +1,8 @@
 import {displayFilters} from './displayFilters.js'
 import {topProduct} from './topProduct.js'
 import {productSlider} from './productSlider.js'
+import {shoppingCart} from './shoppingCart.js'
+import cartIcon from './cartIcon.js';
 let reload = false;
 const expandsearch = () => {
     console.log("this is called")
@@ -88,6 +90,30 @@ topProduct();
 productSlider(1);
 productSlider(2);
 productSlider(3);
+/*******           Some Shopping Function            ********/
+
+let products = document.querySelectorAll('.product')
+let cart = {}
+
+if(localStorage.getItem('cart') != undefined){
+    cart = JSON.parse(localStorage.getItem('cart'))
+}
+export default cart;
+products.forEach((product,index) =>{
+    product.id = `pr${index}`
+})
+products.forEach((product,index) =>{
+    shoppingCart(product.id)
+    console.log(index)
+})
+
+/********end********/
+//shoppingCart();
+
+cartIcon();
+
+
+
 window.addEventListener('resize',()=>{
     if(reload){
         location.reload()

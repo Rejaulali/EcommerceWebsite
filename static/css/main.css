@@ -2,6 +2,8 @@
 @import "product-display.css";
 @import "product-slider.css";
 @import "footer.css";
+@import "shopping-cart.css";
+@import "cart-icon.css";
 *{
     margin:0px;
     padding:0px;
@@ -27,6 +29,7 @@ a{
 :root{
     --list-height:38;
 }
+
 .nav-wrapper{
     display: flex;
     justify-content:space-around;
@@ -120,8 +123,11 @@ li:hover > .dropdown{
     margin:0px;
 }
 .cart{
+    position: relative;
+    right: 10px;
+    top: 5px;
     font-size: 25px;
-    color:rgb(223, 137, 8)
+    color:rgb(223, 137, 8);
 }
 .active{
     background-color: rgb(238, 121, 11);
