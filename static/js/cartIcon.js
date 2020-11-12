@@ -1,3 +1,5 @@
+import { shoppingCart } from "./shoppingCart.js"
+
 const cartIcon =()=>{
     let cartBadge = document.querySelector(".cart-badge")
     let cartValueSpan = document.querySelector(".cart-badge span")
@@ -29,7 +31,7 @@ const cartIcon =()=>{
         for(let item in cart){
             let name =document.querySelector(`#${item} h4`).innerHTML
             let number = cart[item]
-            productDetail.push({name:name.replace(/\s+/g,' ').trim(),number})
+            productDetail.push({name:name.replace(/\s+/g,' ').trim(),number,key:item})
         }
         return productDetail
     }
@@ -41,6 +43,8 @@ const cartIcon =()=>{
                 let name =product.name.length < 10?product.name:product.name.slice(0,10)
                 console.log("product name length "+ name)
                 let list = document.createElement('li')
+                list.id = product.key
+                list.className = "item"
                 list.innerHTML = `
                     <div>
                         ${product.name.length < 12?product.name:product.name.slice(0,12)+".."}
@@ -50,6 +54,14 @@ const cartIcon =()=>{
                     </div>
                 `
                 bubbleList.append(list)
+                list.addEventListener('click',()=>{
+                    delete cart[product.key]
+                    localStorage.setItem('cart',JSON.stringify(cart));
+                    list.parentNode.removeChild(list)
+                    shoppingCart(product.key)
+                    
+                })
+                
             })
             let button = document.createElement("button")
             button.classList = "btn cart-btn"

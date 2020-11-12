@@ -1,11 +1,7 @@
-import {displayFilters} from './displayFilters.js'
-import {topProduct} from './topProduct.js'
-import {productSlider} from './productSlider.js'
 import {shoppingCart} from './shoppingCart.js'
 import cartIcon from './cartIcon.js';
 let reload = false;
 const expandsearch = () => {
-    console.log("this is called")
     let searchbox = document.querySelector('.search-box');
     let searchinput = document.querySelector('.search-box input');
     let brand = document.querySelector('.brand');
@@ -85,27 +81,31 @@ const expandsearch = () => {
     })
 }
 expandsearch()
-displayFilters();
-topProduct();
-productSlider(1);
-productSlider(2);
-productSlider(3);
+
 /*******           Some Shopping Function            ********/
 
 let products = document.querySelectorAll('.product')
-let cart = {}
+const getCartItems = ()=>{
+    let cart = {}
 
-if(localStorage.getItem('cart') != undefined){
-    cart = JSON.parse(localStorage.getItem('cart'))
+    if(localStorage.getItem('cart') != undefined){
+        cart = JSON.parse(localStorage.getItem('cart'))
+    }
+    return cart
 }
-export default cart;
-products.forEach((product,index) =>{
-    product.id = `pr${index}`
-})
-products.forEach((product,index) =>{
-    shoppingCart(product.id)
-    console.log(index)
-})
+
+export default getCartItems;
+const updateProductCards =()=>{
+    products.forEach((product,index) =>{
+        product.id = `pr${index}`
+    })
+    products.forEach((product,index) =>{
+        shoppingCart(product.id)
+    })
+   
+}
+updateProductCards()
+
 
 /********end********/
 //shoppingCart();

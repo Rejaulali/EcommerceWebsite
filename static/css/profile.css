@@ -1,0 +1,9 @@
+.profile > img{
+    object-fit: contain;
+    border-radius:50%;
+    width: 35px;
+}
+.profile{
+    display:grid;
+    place-items: center;
+}

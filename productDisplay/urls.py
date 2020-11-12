@@ -16,5 +16,6 @@ Including another URLconf
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('',views.index,name="home")
+    path('',views.index,name="home"),
+    path('product_search_page',views.product_search_page,name="product_search_page")
 ]

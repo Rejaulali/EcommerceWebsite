@@ -4,6 +4,7 @@
 @import "footer.css";
 @import "shopping-cart.css";
 @import "cart-icon.css";
+@import "profile.css";
 *{
     margin:0px;
     padding:0px;
@@ -150,6 +151,9 @@ li:hover > .dropdown{
 .nav-header{
     display: none;
 }
+.nav-header-profile{
+    display: none;
+}
 @media (max-width:975px){
     .nav-links{
         position: absolute;
@@ -182,6 +186,19 @@ li:hover > .dropdown{
         padding-bottom:0.25em;
         border-bottom: 1px solid rgb(206, 75, 0);
     }
+    .profile{
+        display: none;
+    }
+    .nav-header-profile{
+        display: flex;
+        padding-left: 12px;
+        color:black!important;
+        margin-bottom:20px;
+    }
+    .nav-header-profile >img{
+        margin-right: 12px;
+        width: 70px;
+    }
     .dropdown{
         position: relative;
         
@@ -189,6 +206,7 @@ li:hover > .dropdown{
     .burger{
         display: block;
     }
+    
  
 }
 @media (max-width:535px){

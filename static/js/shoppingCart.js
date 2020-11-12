@@ -1,21 +1,29 @@
 import cartIcon from "./cartIcon.js"
-import cart from "./main.js"
+import getCartItems from "./main.js"
 export const shoppingCart =(id)=>{
     let addToCart = document.querySelector(`#${id} .add-to-cart`)
     let addToCartContainer = document.querySelector(`#${id} .add-to-cart-container`)
+    let cart = getCartItems()
     if(cart[id] != undefined){
         addToCartContainer.innerHTML = `<button class="btn minus" id="minus${id}"> - </button>
             <span class="no-of-item">${cart[id]}</span>    
             <button class="btn plus" id="plus${id}"> + </button>
         `
     }
-    
-    addToCart.addEventListener('click',updateAddToCartBtn)
+    if(addToCart != null){
+        addToCart.addEventListener('click',updateAddToCartBtn)
+    }else{
+        addToCartContainer.innerHTML = `<button class="btn add-to-cart">Add To Cart</button>`
+        document.querySelector(`#${id} .add-to-cart`).addEventListener('click',updateAddToCartBtn)
+        cartIcon()
+        /* this is called by carticon we remove an element from cart*/
+    }
     function updateAddToCartBtn(){
         addToCartContainer.innerHTML = `<button class="btn minus" id="minus${id}"> - </button>
             <span class="no-of-item">1</span>    
             <button class="btn plus" id="plus${id}"> + </button>
         `
+        cart = JSON.parse(localStorage.getItem('cart'))
         cart[id] = 1;
         updateCart();
         updateLocalStorage();
@@ -24,8 +32,8 @@ export const shoppingCart =(id)=>{
    document.addEventListener('click',(e) =>{
        if(e.target && e.target.id == `plus${id}`){
            let noOfItem = parseInt(document.querySelector(`#${id} .no-of-item`).innerHTML);
-           console.log(noOfItem)
            noOfItem = noOfItem + 1;
+           cart = JSON.parse(localStorage.getItem('cart'))        
            cart[id] = noOfItem
            updateCart()
            updateLocalStorage();
@@ -35,8 +43,8 @@ export const shoppingCart =(id)=>{
    document.addEventListener('click',(e) =>{
     if(e.target && e.target.id == `minus${id}`){
         let noOfItem = parseInt(document.querySelector(`#${id} .no-of-item`).innerHTML);
-           console.log(noOfItem)
            noOfItem = noOfItem -1;
+           cart = JSON.parse(localStorage.getItem('cart'))        
            cart[id] = noOfItem;
            updateCart();
            updateLocalStorage();
@@ -44,7 +52,7 @@ export const shoppingCart =(id)=>{
     }
     })
     function updateLocalStorage(){
-        if(cart[id]==0){
+        if(cart[id]==0){ cartIcon();
             delete cart[id];
         }
         if(cart.length == 0){
@@ -58,8 +66,6 @@ export const shoppingCart =(id)=>{
 
     function updateCart(){
         if(cart[id] == 0){
-            
-            console.log("deleted")
             addToCartContainer.innerHTML = `<button class="btn add-to-cart">Add To Cart</button>`
             document.querySelector(`#${id} .add-to-cart`).addEventListener('click',updateAddToCartBtn)
         }

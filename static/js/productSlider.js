@@ -1,11 +1,11 @@
-export const productSlider = (n)=>{
+const productSlider = (n)=>{
     let productSlidesContainerId = `#product-slider${n}`
     let productSliderContainer = document.querySelector(productSlidesContainerId)
     let productSlides = document.querySelector(`${productSlidesContainerId} .product-slides`)
     let productslide = document.querySelectorAll(`${productSlidesContainerId} .product-slide`);
     let leftControl = document.querySelector(`${productSlidesContainerId}  .left`)
     let rightControl = document.querySelector(`${productSlidesContainerId}  .right`)
-    let index = 1;
+    let index = 0;
     let checkAuto = true
     let slideLength = ()=> productslide.length;
     let intervalId = 0;
@@ -29,17 +29,7 @@ export const productSlider = (n)=>{
     rightControl.addEventListener('click',moveNextSlide);
     productSlides.addEventListener('animationend',unsetanimation);
     productSlides.addEventListener('transitionend',resetIndex)
-    const autoslide = ()=>{
-        
-        intervalId = setInterval(() => {
-            if(index = resetIndexValue+1){
-                index = 0;
-            }
-            productSlides.style.transform = `translateX(${-100*index}%)`;           
-            index++;
-        }, 7000);
-    }
-    autoslide();
+     
 
     function resetIndex(){
         if(checkAuto){
@@ -55,7 +45,6 @@ export const productSlider = (n)=>{
         checkAuto = false;
     })
     productSliderContainer.addEventListener('mouseleave',()=>{
-        autoslide();
         checkAuto = true;
         console.log("this is called")
     })
@@ -77,7 +66,6 @@ export const productSlider = (n)=>{
             productSlides.style.animation = "" ;
             productSlides.style.transform = `translateX(${-100*index}%)`;
         }    
-        console.log(index)
     }
 
     
@@ -99,3 +87,6 @@ export const productSlider = (n)=>{
     
 
 }
+productSlider(1);
+productSlider(2);
+productSlider(3);

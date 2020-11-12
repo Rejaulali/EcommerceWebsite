@@ -24,6 +24,7 @@
     box-shadow: 0px 0px 10px black;    
     border-radius: 5px;
     opacity:0;
+    cursor: pointer;
     transition: opacity 0.5s;
     text-align: center;
     
@@ -63,4 +64,10 @@
     font-weight: bold;
     margin: 0px;
     width:100%;
+}
+.item:hover{
+    color: gray;
+    font-style: italic;
+    font-weight: normal;
+    text-decoration: line-through;
 }

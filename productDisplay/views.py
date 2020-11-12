@@ -8,3 +8,6 @@ def index(request):
         "product":p
     }    
     return render(request,'index.html',context)
+
+def product_search_page(request):
+    return render(request,'basic.html')

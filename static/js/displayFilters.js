@@ -1,4 +1,4 @@
-export function displayFilters(){
+function displayFilters(){
     let filterBtns = document.querySelectorAll('.filter-btn button')
     let filterBlocks = document.querySelectorAll('.filters form div')
     let form = document.querySelector('.filters form')
@@ -29,3 +29,4 @@ export function displayFilters(){
         form.classList.remove('form-active')
     })
 }
+displayFilters()

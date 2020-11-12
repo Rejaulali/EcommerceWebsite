@@ -1,4 +1,4 @@
-export function topProduct(){
+function topProduct(){
     let topProduct = document.querySelector('.top-product')
     let filter = document.querySelector('.filters')
     let mainPart = document.querySelector('#mainPart')
@@ -7,3 +7,4 @@ export function topProduct(){
     }
     
 }
+topProduct()
