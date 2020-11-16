@@ -65,8 +65,8 @@ export const shoppingCart =(id, cartIconCalled = false)=>{
 
     }
     function updateLocalStorage(){
-        if(cart[originalId].no==0){ cartIcon();
-            delete cart[id];
+        if(cart[originalId].no == 0){
+            delete cart[originalId];
         }
         if(cart.length == 0){
             localStorage.clear('cart')
