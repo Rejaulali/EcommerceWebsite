@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static%}
+{% block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/product-page.css'%}" />
+{% endblock%}
+{% block content%}
+	<div class="main" align="center">
+		<div class="product product2">
+          <div class="image product-image">
+            <img src="/media/{{product.image}}" style="object-fit: none;"/>
+          </div>
+          <div class="product-description">
+                <div class="quick-view-wrapper" style="display: none">
+                  <a href="/product/{{product.id}}">
+                    <div class="quick-view btn">
+                      Quick View
+                    </div>
+                  </a>
+                </div>
+          		
+          			<div>
+          				<span class="product-col-1">Product Name : </span>
+          				<h4>{{product.name}}, {{product.quantity}}g</h4>
+          			</div>
+          			<div>
+          				<span class="product-col-1">Description : </span>
+          				{{product.description}}
+          			</div>
+          			<div>
+          				<span class="product-col-1">Price : </span>
+          				<p class="rate" style="display: inline">
+				            <span class="discount-rate">
+				              ${{product.discount_price}}
+				            </span>
+				            <span class="actual-rate">
+				              ${{product.actual_price}}
+				            </span>
+	          			</p>
+          	   </div>
+
+	          <div class="add-to-cart-container">
+	            <button class="add-to-cart btn">
+	              <span>Add To Cart</span>
+	            </button>
+	          </div>	
+          </div>
+    </div>
+	</div>
+{% endblock%}

@@ -17,5 +17,6 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('',views.index,name="home"),
-    path('product_search_page',views.product_search_page,name="product_search_page")
+    path('product_search_page/<str:text>/',views.product_search_page,name="product_search_page"),
+    path('product/<str:id>/',views.product_page,name="product_page")
 ]

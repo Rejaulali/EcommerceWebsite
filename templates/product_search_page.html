@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/product-search-page.css'%}" />
+{% endblock%}
+{% block content %}
+  {% if filtered_products %}
+      <div class="main-part">
+        <h2>Result for {{search_item}}</h2>
+      </div>        
+  {% endif%}
+	<div class="main-part">
+			{% for item in filtered_products%}
+             <div class="product">
+                      <div class="image">
+                        <img src="/media/{{item.image}}" style="object-fit: none;"/>
+                        <p class="title"> 
+                          {{item.name}}                     
+                        </p>
+                        <div class="quick-view-wrapper">
+                          <a href="/product/{{item.id}}">
+                            <div class="quick-view btn">
+                              Quick View
+                            </div>
+                          </a>
+                        </div>
+                        <div class="badge">
+                          <span>New</span>
+                        </div>
+                      </div>
+                      <h4>
+                        {{item.name}}, {{item.quantity}}g
+                      </h4>
+                      <p class="rate">
+                        <span class="discount-rate">
+                          ${{item.discount_price}}
+                        </span>
+                        <span class="actual-rate">
+                          ${{item.actual_price}}
+                        </span>
+                      </p>
+                      <div class="add-to-cart-container">
+                        <button class="add-to-cart btn">
+                          <span>Add To Cart</span>
+                        </button>
+                      </div>
+                    </div> 
+                    {% empty %}
+                    <h2 id="fallback-result" align="center">Sorry, No Product found related to {{search_item}} Category</h2>
+    {% endfor%}		
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+.product2{
+	width:inherit;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border:1px solid green!;
+}
+.product-description{
+	width: 280px;
+	text-align: left;
+	padding-top:1em;
+	margin-top: 1em;
+	border-top: 1px solid #fefefe;
+	font-style:  italic;
+}
+
+.product-image{
+	width: inherit!important;
+	
+}
+.product-image img{
+	width: 300px;
+	object-fit: contain
+	border:1px solid green;
+}
+.product-col-1{
+	color:#5a5a5a;
+	font-style: normal;
+}

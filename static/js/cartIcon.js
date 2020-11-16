@@ -1,4 +1,4 @@
-import { shoppingCart } from "./shoppingCart.js"
+ import { shoppingCart } from "./shoppingCart.js"
 
 const cartIcon =()=>{
     let cartBadge = document.querySelector(".cart-badge")
@@ -8,7 +8,7 @@ const cartIcon =()=>{
     const totalItems=()=>{
         let total=0
         for(let item in cart){
-            total= total + cart[item];
+            total= total + cart[item].no;
         }
         return total
     }
@@ -29,8 +29,8 @@ const cartIcon =()=>{
     const product = ()=>{
         let productDetail = []
         for(let item in cart){
-            let name =document.querySelector(`#${item} h4`).innerHTML
-            let number = cart[item]
+            let name = cart[item].name
+            let number = cart[item].no
             productDetail.push({name:name.replace(/\s+/g,' ').trim(),number,key:item})
         }
         return productDetail
@@ -58,7 +58,7 @@ const cartIcon =()=>{
                     delete cart[product.key]
                     localStorage.setItem('cart',JSON.stringify(cart));
                     list.parentNode.removeChild(list)
-                    shoppingCart(product.key)
+                    shoppingCart(product.key,true)
                     
                 })
                 

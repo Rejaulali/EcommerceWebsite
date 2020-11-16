@@ -2,8 +2,9 @@ import {shoppingCart} from './shoppingCart.js'
 import cartIcon from './cartIcon.js';
 let reload = false;
 const expandsearch = () => {
+    let searchForm = document.querySelector('#productSearch')
     let searchbox = document.querySelector('.search-box');
-    let searchinput = document.querySelector('.search-box input');
+    let searchinput = document.querySelector('#productSearchInput');
     let brand = document.querySelector('.brand');
     let searchbtn = document.querySelector('.search-box a')
     let closesearchbtn = true;
@@ -18,9 +19,20 @@ const expandsearch = () => {
             if (closesearchbtn || searchinput.value == "") {
                 e.preventDefault();
             }
+            else{
+
+                searchForm.submit()
+            }
             searchaction = true
             selectDomOrNot = false;
             closesearchbtn = false;
+        }else{
+            if(searchinput.value != ""){
+                searchForm.submit()
+            }else{
+                alert("Please Enter Something")
+            }
+            
         }
 
     })
@@ -97,9 +109,10 @@ const getCartItems = ()=>{
 export default getCartItems;
 const updateProductCards =()=>{
     products.forEach((product,index) =>{
-        product.id = `pr${index}`
+        product.id = `pr${index}`        
     })
     products.forEach((product,index) =>{
+        
         shoppingCart(product.id)
     })
    

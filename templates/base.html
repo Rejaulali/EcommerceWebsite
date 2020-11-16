@@ -6,6 +6,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}" />
+  {% block stylesheets%}
+  {% endblock stylesheets%}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>SuperGrocery</title>
 </head>
@@ -45,9 +47,9 @@
           <li><a href="#" class="active">Home</a></li>
           <li><a href="#">Category</a>
             <ul class="dropdown">
-              <li class="dropdown-link"><a href="#">Category 1</a></li>
-              <li class="dropdown-link"><a href="#">Category 2sdff</a></li>
-              <li class="dropdown-link"><a href="#">Category 3</a></li>
+              <li class="dropdown-link"><a href="/product_search_page/oil/">Oil</a></li>
+              <li class="dropdown-link"><a href="/product_search_page/nuts/">nuts</a></li>
+              <li class="dropdown-link"><a href="/product_search_page/icecream/">Icecream</a></li>
             </ul>
           </li>
           <li><a href="#">Contact Us</a></li>
@@ -57,12 +59,12 @@
         </div>
 
         <li class="search-box">
-
-          <input type="text" placeholder="Search Product" />
-          <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </a>
-
+          <form method="post" action="/product_search_page/random/" id="productSearch">{% csrf_token %}
+            <input type="text" placeholder="Search Product" id="productSearchInput" name="category"/>
+            <a class="btn">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+          </form>
         </li>
         <li class="cart">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -77,7 +79,9 @@
         </li>
       </ul>
     </nav>
- 
+    {% block content %}
+
+    {% endblock%}
     <div class="subscribe">
       <div class="email-input">
         <p class="p1">
@@ -225,6 +229,9 @@
         All  rights are Reserved
     </footer>
     <script type="module" src="{% static 'js/main.js'%}"></script>
+    {% block scripts%}
+
+    {% endblock%}
     <!--<script src="{% static 'js/slider.js'%}"></script>
     <script src="{% static 'js/priceSlider.js'%}"></script> -->
 </body>

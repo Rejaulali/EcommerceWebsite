@@ -89,16 +89,17 @@ a{
     border-bottom: 1px solid white;
 }
 li:hover > .dropdown{
-    height:124px /* height = listheight*no-of-list-items + no.of borders* ex for 38*3 =*/
+    height:135px /* height = listheight*no-of-list-items + no.of borders* ex for 38*3 =*/
 }
 .search-box{
     background-color: rgb(37, 36, 36);
     padding: 3px;
     border-radius:200px;
     display: flex;
-    width:fit-content;
-  
- 
+    width:fit-content; 
+}
+.search-box form{
+    display:inline-flex;
 }
 .search-box input{
     background: none;
@@ -211,13 +212,14 @@ li:hover > .dropdown{
 }
 @media (max-width:535px){
     .search-box form{
-        margin:0px; padding:0px; display:inline;
+        margin:0px; padding:0px; display:inline-flex;
     }
     .search-box input{
         width: 0px;
         padding:0px;
         margin: 0px;
         transition: 0.25s;
+
     }
     .search-box{
         margin: 3px;

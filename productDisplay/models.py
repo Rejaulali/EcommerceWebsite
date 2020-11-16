@@ -4,6 +4,7 @@ from django.utils import timezone
 class product(models.Model):
     name = models.CharField(max_length=100,default="")
     category = models.CharField(max_length = 100, default="")
+    description = models.CharField(max_length = 500, default="")
     quantity = models.IntegerField(default=0)
     actual_price = models.IntegerField(default=0)
     discount_price = models.IntegerField(default=0)

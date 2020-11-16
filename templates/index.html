@@ -1,82 +1,9 @@
+{% extends 'base.html' %}
 {%load static%}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <title>SuperGrocery</title>
-</head>
 
-<body>
-  <div class="wrapper">
-    <div class="toplabel">
-      <h4>Grocery Offer Zone Top Deals & Discounts</h4>
-    </div>
-    <nav>
-      <ul class="nav-wrapper">
-        <li class="burger">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </li>
-        <li class="profile">
-          <img
-            src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png"
-            title="Your profile"
-          />
-        </li>
-        
-        <li class="brand">
-          <span><span style="color: rgb(238, 121, 11)">S</span>uper<span
-              style="color: rgb(238, 121, 11)">G</span>rocery</span>
-        </li>
-        <div class="nav-links">
-          <li class="profile nav-header-profile">
-            <img
-              src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png"
-              title="Your profile"
-            />
-            <h2>Your Name</h2>
-          </li>
-          <h3 class="nav-header">Menu Links</h3>
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#">Category</a>
-            <ul class="dropdown">
-              <li class="dropdown-link"><a href="#">Category 1</a></li>
-              <li class="dropdown-link"><a href="#">Category 2sdff</a></li>
-              <li class="dropdown-link"><a href="#">Category 3</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Log In</a></li>
-        </div>
+{% block content %}
 
-        <li class="search-box">
-
-          <input type="text" placeholder="Search Product" />
-          <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </a>
-
-        </li>
-        <li class="cart">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          <div class="cart-badge">
-            <span>0</span>
-          </div>
-          <div class="bubble">
-            <ul>
-              
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
     <div class="slide-container">
       <div class="slides">
         <div class="slide">
@@ -271,9 +198,11 @@
                           {{item.name}}                     
                         </p>
                         <div class="quick-view-wrapper">
-                          <div class="quick-view btn">
-                            Quick View
-                          </div>
+                          <a href="/product/{{item.id}}">
+                            <div class="quick-view btn">
+                              Quick View
+                            </div>  
+                          </a>                          
                         </div>
                         <div class="badge">
                           <span>New</span>
@@ -336,9 +265,11 @@
                           {{item.name}}                     
                         </p>
                         <div class="quick-view-wrapper">
-                          <div class="quick-view btn">
-                            Quick View
-                          </div>
+                          <a href="/product/{{item.id}}">
+                            <div class="quick-view btn">
+                              Quick View
+                            </div>  
+                          </a>   
                         </div>
                         <div class="badge">
                           <span>New</span>
@@ -488,9 +419,11 @@
                       {{item.name}}                     
                     </p>
                     <div class="quick-view-wrapper">
-                      <div class="quick-view btn">
-                        Quick View
-                      </div>
+                      <a href="/product/{{item.id}}">
+                            <div class="quick-view btn">
+                              Quick View
+                            </div>  
+                      </a>   
                     </div>
                     <div class="badge">
                       <span>New</span>
@@ -526,158 +459,12 @@
         </div>
       </div>
     </div>
-    <div class="subscribe">
-      <div class="email-input">
-        <p class="p1">
-          Get your Groceries delivered from local stores
-        </p>
-        <p class="p2">Free Delivery on your first order</p>
-        <form>  
-          <input placeholder="Enter Your Email" />
-          <button class="btn"type="submit">Subscribe</button>
-        </form>
-        
-      </div>
-      <div class="image">
-        <img src="{% static 'images/map.jpg'%}">
-      </div>
-    </div>
-    <div class="main-part footer" >
-      <div></div>
-      <div class="description-in-footer">
-        <p>
-          <strong style="color:black">"SuperGrocery"</strong> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
-      </div>
-      <div class="services">
-        <div>
-          <div class="service-icon">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-          </div>
-          <div class="service-name">
-            <p>Track Your Order</p>
-          </div>
-        </div>
-        <div>
-          <div class="service-icon">
-            <i class="fa fa-refresh" aria-hidden="true"></i>
-          </div>
-          <div class="service-name">
-            <p>Free & Easy Returns</p>
-          </div>
-        </div>
-        <div>
-          <div class="service-icon">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </div>
-          <div class="service-name">
-            <p>Online Cancellation</p>
-          </div>
-        </div>
-      </div>
-      <div class="shortcuts">
-        <div class="categories">
-          <h3>Categories</h3>
-          <div>
-            <ul>
-              <li>Grocery</li>
-              <li>Fruits</li>
-              <li>Soft Drinks</li>
-              <li>Diswashers</li>
-              <li>Biscuits & Cookies</li>
-              <li>Baby Diapers</li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li>Snacks & Beverages</li>
-              <li>Breads & Bakery</li>
-              <li>Sweets</li>
-              <li>Chocolate & Biscuits</li>
-              <li>personal Care</li>
-              <li>Dried Fruits and Nuts</li>
-            </ul> 
-          </div>
-        </div>
-        <div class="quick-links">
-          <div class="links">
-            <h3>Quick Links</h3>
-            <ul>
-              <li>About Us</li>
-              <li>Contact Us</li>
-              <li>Help</li>
-              <li>Faqs</li>
-              <li>Terms of use</li>
-              <li>Privacy Policy</li>
-            </ul>
-          </div>
-          <div class="get-in-touch">
-            <h3>Get in Touch</h3>
-            <ul>
-              <li><i class="fa fa-map-marker" aria-hidden="true"></i> Delhi</li>
-              <li><i class="fa fa-mobile" aria-hidden="true"></i> XXXXXXXXX</li>
-              <li><i class="fa fa-phone" aria-hidden="true"></i> +XXXX XX XXXX</li>
-              <li><i class="fa fa-envelope-o" aria-hidden="true"></i> main@example.com</li>
-            </ul>
-          </div>
-        </div>
-        <div class="social-media">
-          <h3>Follow Us</h3>
-          <div class="social-media-icon">
-            <div style="background:#3b5998">
-              <i class="fa fa-facebook-f"></i>
-            </div>
-            <div style="background:#1DA1F2;">
-              <i class="fa fa-twitter" aria-hidden="true"></i>  
-            </div>
-            <div style="background:#DB4A39;">
-              <i class="fa fa-google-plus" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
+{% endblock%}
 
-      </div>
-      <div class="description-in-footer">
-        <h3>Online Grocery shopping</h3>
-        <p>
-          Order online. All your favourite products from the low price online supermarket for grocery home delivery in Delhi, Gurgaon, Bengaluru, Mumbai and other cities in India. Lowest prices guaranteed on Patanjali, Aashirvaad, Pampers, Maggi, Saffola, Huggies, Fortune, Nestle, Amul, MamyPoko Pants, Surf Excel, Ariel, Vim, Haldiram's and others.
-        </p>
-      </div>
-      <div class="description-in-footer">
-        <h3>Shop online with the best deals & offers</h3>
-        <p>
-          Now Get Upto 40% Off On Everyday Essential Products Shown On The Offer Page. The range includes Grocery, Personal Care, Baby Care, Pet Supplies, Healthcare and Other Daily Need Products. Discount May Vary From Product To Product.
-        </p>
-      </div>
-      <div class="description-in-footer">
-        <h3>Popular Brands</h3>
-        <p>
-          Aashirvaad Amul Bingo Boost Durex Maggi Glucon-D Horlicks Head & Shoulders Dove Dettol Dabur Colgate Coca-Cola Closeup Cinthol Cadbury Bru Bournvita Tang Pears Oreo Taj Mahal Sprite Thums Up Fair & Lovely Lakme Tata Sunfeast Sunsilk Patanjali MTR Kissan Lipton
-        </p>
-      </div>
-      <div class="description-in-footer">
-        <h3>Payment Method</h3>
-        <p>
-          <img src="{%static 'images/mastercard.png'%}"/>
-          <img src="{%static 'images/visa.png'%}"/>
-          <img src="{%static 'images/discover.png'%}"/>
-          <img src="{%static 'images/american.png'%}" style="width:80px"/>
-          <img src="{%static 'images/maestro.png'%}"/>
-          <img src="{%static 'images/netbanking.png'%}"  style="width:120px"/>
-          <img src="{%static 'images/cashondelivery.png'%}"/>
-        </p>
-      </div>
-    </div>
-    <footer>
-        &copy;This webpage is created by Rejaul Ali.
-        All  rights are Reserved
-    </footer>
-    <script type="module" src="{% static 'js/main.js'%}"></script>
+{% block scripts%}
     <script src="{% static 'js/slider.js'%}"></script>
     <script src="{% static 'js/priceSlider.js'%}"></script>
     <script src="{% static 'js/displayFilters.js'%}"></script>
     <script src="{% static 'js/topProduct.js'%}"></script>
     <script src="{% static 'js/productSlider.js'%}"></script>
-</body>
-
-</html>
+{% endblock%}
