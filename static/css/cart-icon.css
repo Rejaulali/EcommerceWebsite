@@ -60,6 +60,7 @@
 }
 
 .cart-btn{
+    display: block;
     background: rgb(20, 189, 219);
     font-weight: bold;
     margin: 0px;

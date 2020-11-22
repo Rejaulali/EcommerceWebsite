@@ -1,6 +1,10 @@
 import {shoppingCart} from './shoppingCart.js'
 import cartIcon from './cartIcon.js';
+import {updateProductCards} from "./updateProductCards.js"
 let reload = false;
+localStorage.setItem('load',false)
+
+/**** for search***/
 const expandsearch = () => {
     let searchForm = document.querySelector('#productSearch')
     let searchbox = document.querySelector('.search-box');
@@ -96,7 +100,7 @@ expandsearch()
 
 /*******           Some Shopping Function            ********/
 
-let products = document.querySelectorAll('.product')
+
 const getCartItems = ()=>{
     let cart = {}
 
@@ -107,16 +111,6 @@ const getCartItems = ()=>{
 }
 
 export default getCartItems;
-const updateProductCards =()=>{
-    products.forEach((product,index) =>{
-        product.id = `pr${index}`        
-    })
-    products.forEach((product,index) =>{
-        
-        shoppingCart(product.id)
-    })
-   
-}
 updateProductCards()
 
 
@@ -135,3 +129,4 @@ window.addEventListener('resize',()=>{
         reload = true;
     }
 })
+

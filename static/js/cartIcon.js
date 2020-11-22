@@ -1,9 +1,12 @@
- import { shoppingCart } from "./shoppingCart.js"
-
+import { shoppingCart } from "./shoppingCart.js"
+import { updateProductCards } from "./updateProductCards.js"
+import checkout  from "./checkout.js"
 const cartIcon =()=>{
+
     let cartBadge = document.querySelector(".cart-badge")
     let cartValueSpan = document.querySelector(".cart-badge span")
     let cart = JSON.parse(localStorage.getItem('cart'))
+    console.log(cart)
     let bubbleList = document.querySelector(".bubble ul")
     const totalItems=()=>{
         let total=0
@@ -58,12 +61,14 @@ const cartIcon =()=>{
                     delete cart[product.key]
                     localStorage.setItem('cart',JSON.stringify(cart));
                     list.parentNode.removeChild(list)
-                    shoppingCart(product.key,true)
-                    
+                    shoppingCart(`pr${product.key}`,true)
+                    //updateProductCards()
+                    checkout()
                 })
                 
             })
-            let button = document.createElement("button")
+            let button = document.createElement("a")
+            button.href="/checkout"
             button.classList = "btn cart-btn"
             button.innerHTML="Check Out"
             bubbleList.appendChild(button)

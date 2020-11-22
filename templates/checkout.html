@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css'%}" />
+{% endblock%}
+{% block content%}
+	<div class="checkout-wrapper">
+		<div class="bill-overview">
+			<span style="font-weight: bold;color:grey">
+				Total Bill to be paid : <span style="color:green;font-weight: bold;" id="totalOverview">100</span>
+			</span>	
+		</div>
+		<h3 style="margin-bottom: 0.5em">
+			Your cart details 
+		</h3>
+		<div class="cart-details">
+							
+		</div>
+		<div class="order-btn">
+			<button class="btn">
+				Order
+			</button>
+		</div>
+	</div>
+{% endblock%}
+{% block scripts%}
+	<script type="module" src="{% static 'js/checkout.js'%}"></script>
+	<script type="module">
+		import checkout from '{% static "js/checkout.js"%}'
+		checkout()
+	</script>
+{% endblock%}

@@ -12,3 +12,7 @@ class product(models.Model):
     isSpecial = models.BooleanField(default = False)
     date = models.DateTimeField(auto_now=timezone.now)
     image = models.ImageField(upload_to = "products",default="")
+    def __str__(self):
+        return self.name
+
+

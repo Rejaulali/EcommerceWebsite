@@ -1,12 +1,15 @@
 import cartIcon from "./cartIcon.js"
+import {updateProductCards} from "./updateProductCards.js"
 import getCartItems from "./main.js"
 export const shoppingCart =(id, cartIconCalled = false)=>{
+    let cart = getCartItems()
+    console.log(id)
     let addToCart = document.querySelector(`#${id} .add-to-cart`)
     let addToCartContainer = document.querySelector(`#${id} .add-to-cart-container`)
     let productAnchorTag = document.querySelector(`#${id} .quick-view-wrapper a`)
-    let originalId = productAnchorTag.href.slice(30)
-    let cart = getCartItems()
+    let originalId = !cartIconCalled ? productAnchorTag.href.slice(30): id.slice(2)
     if(cart[originalId] != undefined){
+        
         addToCartContainer.innerHTML = `<button class="btn minus" id="minus${id}"> - </button>
             <span class="no-of-item">${cart[originalId].no}</span>    
             <button class="btn plus" id="plus${id}"> + </button>
@@ -19,24 +22,35 @@ export const shoppingCart =(id, cartIconCalled = false)=>{
         document.querySelector(`#${id} .add-to-cart`).addEventListener('click',updateAddToCartBtn)
         cartIcon()
         /* this is called by carticon we remove an element from cart*/
-    }else{
+    }
+    if(cartIconCalled){
       cartIcon()
+      console.log("carticon is called")
+      updateCart()
+      updateProductCards()
     }
 
 
     function updateAddToCartBtn(){
-        addToCartContainer.innerHTML = `<button class="btn minus" id="minus${id}"> - </button>
-            <span class="no-of-item">1</span>    
-            <button class="btn plus" id="plus${id}"> + </button>
-        `
-        let itemName = document.querySelector(`#${id} h4`).innerHTML
+        let relatedProductsContainer = document.querySelectorAll(`.product${originalId} .add-to-cart-container`)
+
+        relatedProductsContainer.forEach((item) => {
+            item.innerHTML = `<button class="btn minus" id="minus${id}"> - </button>
+                <span class="no-of-item">1</span>    
+                <button class="btn plus" id="plus${id}"> + </button>
+           `
+        })
+        console.log(id) 
+        let itemName = document.querySelector(`.product${originalId} h4`).innerHTML
+        let price = document.querySelector(`.product${originalId} .discount-rate`).innerHTML
+        price=parseInt(price.replace(/\s+/g,'').trim().slice(1))
         cart = getCartItems()
-        cart[originalId] = {no:1,name:itemName};
-        updateCart();
+        cart[originalId] = {no:1,name:itemName,price};
         updateLocalStorage();
+        updateCart();
         
     }
-    if(!cartIconCalled){
+    if(!cartIconCalled && !JSON.parse(localStorage.getItem('load'))){
         document.addEventListener('click',(e) =>{
          if(e.target && e.target.id == `plus${id}`){
              let noOfItem = parseInt(document.querySelector(`#${id} .no-of-item`).innerHTML);
@@ -44,9 +58,9 @@ export const shoppingCart =(id, cartIconCalled = false)=>{
              console.log(noOfItem)
              noOfItem = noOfItem + 1;
              cart = getCartItems()        
-             cart[originalId] = {no:noOfItem,name:itemName};
-             updateCart()
+             cart[originalId].no = noOfItem
              updateLocalStorage();
+             updateCart();
              
          }
         })
@@ -56,9 +70,9 @@ export const shoppingCart =(id, cartIconCalled = false)=>{
             let itemName = document.querySelector(`#${id} h4`).innerHTML
                noOfItem = noOfItem -1;
                cart = getCartItems()
-               cart[originalId] = {no:noOfItem,name:itemName};
-               updateCart();
+               cart[originalId].no = noOfItem
                updateLocalStorage();
+               updateCart();
                
           }
         })
@@ -78,12 +92,22 @@ export const shoppingCart =(id, cartIconCalled = false)=>{
     }
 
     function updateCart(){
-        if(cart[originalId].no == 0){
-            addToCartContainer.innerHTML = `<button class="btn add-to-cart">Add To Cart</button>`
-            document.querySelector(`#${id} .add-to-cart`).addEventListener('click',updateAddToCartBtn)
+        let relatedProductsContainer = document.querySelectorAll(`.product${originalId} .add-to-cart-container`)
+        if(cart[originalId] == undefined){
+            relatedProductsContainer.forEach((item)=>{
+                item.innerHTML = `<button class="btn add-to-cart">Add To Cart</button>`
+            })
+            document.querySelectorAll(`.product${originalId} .add-to-cart`).forEach((item)=>{
+                item.addEventListener('click',updateAddToCartBtn)
+            })
+            //updateProductCards()
+            //addToCartContainer.innerHTML = `<button class="btn add-to-cart">Add To Cart</button>`
+            //document.querySelector(`#${id} .add-to-cart`).addEventListener('click',updateAddToCartBtn)
         }
         else{
-            document.querySelector(`#${id} .no-of-item`).innerHTML = `${cart[originalId].no}`
+            document.querySelectorAll(`.product${originalId} .no-of-item`).forEach((item)=>{
+                item.innerHTML = `${cart[originalId].no}`
+            })
         }
     }
 
