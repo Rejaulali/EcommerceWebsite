@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/order.css'%}" />
+{%endblock%}
+{% block content%}
+	<div class="form2-wrapper" >
+		
+		<form class="form2" method="POST" action="" id="orderForm" enctype="multipart/form-data">{% csrf_token%}
+				<h3>Update Profile of <span style="text-transform: capitalize;">{{customer.name}}</span></h3>
+			<div>
+				<label class="form2-label">{{form.name.label}}</label>
+				{{form.name}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.phone.label}}</label>
+				{{form.phone}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.email.label}}</label>
+				{{form.email}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.address.label}}</label>
+				{{form.address}}
+			</div>
+			
+			<div>
+					<label class="form2-label">{{form.profile_pic.label}}</label>
+					{{form.profile_pic}}
+			</div>
+			<div style="margin-bottom: 0px;text-align: center;">
+				<button class="btn btn-bkg" type="submit" id="submitBtn">Update</button>
+				<a href="/sdadmin">
+					<button class="btn btn-bkg" id="submitBtn" style="background: red">cancel</button>
+				</a>
+			</div>
+			
+		</form>
+	</div>
+{% endblock%}

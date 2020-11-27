@@ -1,0 +1,96 @@
+{% extends 'base.html'%}
+{%load static%}
+{% block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sgadmin.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'css/customer.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'css/filterForm.css' %}" >
+{% endblock%}
+{% block content%}
+	<div class="sgadmin-wrapper2">
+		<h1 align="center">CUSROMERS</h1>
+		<div class="filters filters2">
+			<h3>Filters</h3>
+			<form action="">
+				<div>
+					<label>{{myfilter.form.Customer_id.label}}</label>
+					{{myfilter.form.Customer_id}}
+					{{myfilter.form.Customer_id.errors}}
+				</div>
+				<div>
+					<label>{{myfilter.form.name.label}}</label>
+					{{myfilter.form.name}}
+					{{myfilter.form.name.errors}}
+				</div>
+				<div>
+					<label>{{myfilter.form.phone.label}}</label>
+					{{myfilter.form.phone}}
+					{{myfilter.form.phone.errors}}
+				</div>
+				<div>
+					<label>Customer created after date (mm/dd/yyyy)</label>
+					{{myfilter.form.date_start}}
+					{{myfilter.form.date_start.errors}}
+				</div>
+				<div>
+					<label>Customer created before date(mm/dd/yyyy)</label>
+					{{myfilter.form.date_end}}
+					{{myfilter.form.date_end.errors}}
+				</div>
+				<div style="display: block">
+					<button class="btn" style="background: rgb(238, 121, 11);">Search</button>	
+				</div>
+			</form>
+			<h3 style="margin: 1.5em 0em 0em 0em"> Filter Results</h3>
+		</div>
+		{% if customers%}
+		<div class="list-wrapper">
+			<div class="list-row">
+				<div class="list-col1">
+					<span>id</span>
+				</div>
+				<div class="list-col2">
+					<span>name</span>
+				</div>
+				<div class="list-col3" id="emailTitle">
+					<span>full detail</span>
+				</div>
+				<div class="list-col4" style="color: black">
+					<span>date</span>
+				</div>
+				<div class="list-col5">
+					<span>profile pic</span>
+				</div>
+			</div>
+			{% for item in customers%}
+			<div class="list-row">
+				<div class="list-col1">
+					<span>{{item.id}}</span>
+				</div>
+				<div class="list-col2">
+					<span>{{item.name}}</span>
+				</div>
+				<div class="list-col3">
+					<a href="/customer/{{item.id}}">
+						<button class="btn"   style="background: orange;padding: 5px;margin:0px">Click me</button>
+					</a>
+				</div>
+				<div class="list-col4">
+					<span>{{item.date_created|date:"d-m-y"}}</span>
+				</div>
+				<div class="list-col5">
+						<a href="{{item.profile_pic.url}}">
+							<button class="btn" style="background: #27bbf5;padding: 5px;margin:0px">View</button>
+						</a>
+					</div>
+					
+				
+			</div>
+			{% endfor%}
+		</div>
+		{%else%}
+		<h1 style="color:grey">No Customer is Found</h1>
+		{%endif%}
+	</div>
+	
+	
+{% endblock%}

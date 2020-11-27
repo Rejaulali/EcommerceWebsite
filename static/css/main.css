@@ -101,6 +101,21 @@ li:hover > .dropdown{
 .search-box form{
     display:inline-flex;
 }
+
+.search-box input:-webkit-autofill,
+.search-box input:-webkit-autofill:hover, 
+.search-box input:-webkit-autofill:focus{
+  -webkit-text-fill-color:rgb(255, 167, 116);
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.search-box input:-webkit-autofill::first-line{
+    font-size: initial;
+    font-weight: bold;
+    color:rgb(255, 167, 116);
+}
+
 .search-box input{
     background: none;
     border: none;
@@ -272,4 +287,22 @@ li:hover > .dropdown{
 }
 .line3active{
     transform: rotate(-45deg) translate(5px,-5px);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color:black;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+input:-webkit-autofill::first-line{
+    font-size: initial;
 }

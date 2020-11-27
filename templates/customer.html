@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sgadmin.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'css/customer.css' %}" >
+{% endblock%}
+{% block content%}
+	<div class="overlay-background">
+		<div class="customers-detail">
+			<div class="profile_pic">
+				<img src="{{customer.profile_pic.url}}">
+			</div>
+			<div>
+				<span class="customer-field">Name</span>:
+				<span>{{customer.name}}</span>
+			</div>
+			<div>
+				<span class="customer-field">Phone</span>:
+				<span>{{customer.phone}}</span>
+			</div>
+			<div>
+				<span class="customer-field">Email</span>:
+				<span>{{customer.email}}</span>
+			</div>
+			<div>
+				<span class="customer-field">Address</span>:
+				<span>{{customer.address}}</span>
+			</div>
+			<div>
+				<span class="customer-field">Join on</span>:
+				<span>{{customer.date_created}}</span>
+			</div>
+
+			<div align="center">
+				<a href="/customer_update/{{customer.id}}">
+					<button class="btn update">Update</button>
+				</a>
+				<button class="btn delete" id="deleteBtn">Delete</button>
+			</div>
+		</div>
+	</div>
+{% endblock%}
+{% block scripts%}
+	<script type="text/javascript">
+		let deleteBtn = document.querySelector('#deleteBtn')
+		deleteBtn.addEventListener('click',()=>{
+			value = confirm("do you want to delete customer named '{{customer.name}}'")
+			if(value){
+				window.location.href='/customer_delete/{{customer.id}}'
+			}
+
+		})
+	</script>
+{% endblock%}

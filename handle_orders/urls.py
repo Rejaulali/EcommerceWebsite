@@ -16,5 +16,10 @@ Including another URLconf
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('checkout/',views.checkout,name="home"),
+    path('checkout/',views.checkout, name="checkout"),
+    path('order/<int:bill>/',views.order, name="order"),
+    path('order_admin/<int:pk>/',views.order_admin, name="order_admin"),
+    path('order_profile/<int:pk>/',views.order_profile, name="order_profile"),
+    path('order_delete/<int:pk>/',views.order_delete, name="order_delete"),
+    path('order_update/<int:pk>/',views.order_update, name="order_update")
 ]

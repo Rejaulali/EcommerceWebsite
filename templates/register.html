@@ -9,39 +9,83 @@
 </head>
 <body>
 	<div class="wrapper">
-		<img src="https://www.washingtonpost.com/resizer/WWLs91LUlbMpRXQMbDcLPXlFUhg=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/AA43TKRJCY7PJGI3Y6PWFEF44I.jpg"/>
 		<h2><span><span style="color: rgb(238, 121, 11)">S</span>uper<span
               style="color: rgb(238, 121, 11)">G</span>rocery</span></h2>
 		<form method="POST" action="" autocomplete="off">{% csrf_token%}
 			<h3 align="center">Register</h3>
 			<p>
 				<div class="label">
+					{% if form.errors.username%}
+					{{form.errors.username}}
+					{% else%}
 					{{form.username.label}}
+					{% endif%}
 				</div>
 				{{form.username}}
 			</p>
 			<p>
 				<div class="label">
+					{% if form.errors.username%}
+					{{form.errors.email}}
+					{% else%}
 					{{form.email.label}}
+					{% endif%}
 				</div>
 				{{form.email}}
 			</p>
 			<p>
 				<div class="label">
+					{% if form.errors.username%}
+					{{form.errors.password1}}
+					{% else%}
 					{{form.password1.label}}	
+					{% endif%}	
 				</div>
 				{{form.password1}}
 			</p>
 			<p>
 				<div class="label">
+					{% if form.errors.password2%}
+					{{form.errors.password2}}
+					{% else%}
 					{{form.password2.label}}	
+					{% endif%}	
 				</div>				
 				{{form.password2}}
 			</p>
-			<input type="submit" name="Create user">	
+			<input type="submit" name="Create user">
+			<span class="form-footer">
+				Already have account? <a href="/login">login</a>
+			</span>	
 		</form>			
 	</div>	
-	<script type="text/javascript" src="{% static 'js/register.js'%}"></script>
+	<script type="text/javascript">
+		
+		let username = document.querySelector('#id_username')
+		let email = document.querySelector('#id_email')
+		let password1 = document.querySelector('#id_password1')
+		let password2 = document.querySelector('#id_password2')
+		const errorhandling = ()=>{
+			if(`{{form.errors.username}}`){
+				username.style.borderBottom = "2px solid red"
+			}
+			if(`{{form.errors.email}}`){
+				email.style.borderBottom = "2px solid red"
+			}
+			if(`{{form.errors.password2}}`){
+				password2.style.borderBottom = "2px solid red"
+			}
+		}
+		errorhandling()
+		const register = ()=>{
+			username.placeholder = "Enter Your Name"
+			email.placeholder = "Enter Your Email"
+			email.autocomplete = "off"
+			password1.placeholder = "New password"
+			password2.placeholder = "Confirm Password"
+		}
+		register()
+	</script>
 </body>
 </html>
 

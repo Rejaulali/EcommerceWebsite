@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/order.css'%}" />
+	<style>
+		input[type=checkbox]{
+			width: 20px;
+		}
+	</style>
+{%endblock%}
+{% block content%}
+	<div class="form2-wrapper" >
+		<form class="form2" method="POST" action="" id="orderForm" enctype="multipart/form-data">{%csrf_token%}
+				<h3>Create a new Product</h3>
+			<div>
+				<label class="form2-label">{{form.name.label}}</label>
+				{{form.name}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.category.label}}</label>
+				{{form.category}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.description.label}}</label>
+				{{form.description}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.actual_price.label}}</label>
+				{{form.actual_price}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.quantity.label}}</label>
+				{{form.quantity}}
+			</div>
+			<div>
+					<label class="form2-label">{{form.discount_price.label}}</label>
+					{{form.discount_price}}
+			</div>
+			<div style="display: flex;justify-content: space-between;">
+				<div style="width: 40%;	">
+					<label class="form2-label">{{form.isFeatured.label}}</label>
+					{{form.isFeatured}}
+				</div>
+				<div style="width: 40%">
+						<label class="form2-label">{{form.isSpecial.label}}</label>
+						{{form.isSpecial}}
+				</div>
+			</div>
+			<div>
+					<label class="form2-label">{{form.image.label}}</label>
+					{{form.image}}
+			</div>
+			<div style="margin-bottom: 0px;text-align: center;">
+				<button class="btn btn-bkg" type="submit" id="submitBtn">Create</button>
+				
+			</div>
+			
+		</form>
+	</div>
+{% endblock%}

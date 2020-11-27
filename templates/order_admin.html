@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static%}
+{%block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/order_admin.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css'%}" />
+{%endblock%}
+{% block content%}
+	<div class="form2-wrapper" >
+		<h2 style="text-align: center;margin-bottom: 1em">{{order.id}} Order detail </h2>
+		<input id="orderDescription" type="hidden" value="{{order.order_description}}">
+		<div class="order-wrapper">
+			<div class="customer-detail">
+				<div class="row">
+					<div class="order-field">Name</div> :
+					<div class="value">{{order.customer.name}}</div>
+				</div>
+				<div class="row">
+					<div class="order-field">Phone</div> :
+					<div class="value">{{order.customer.phone}}</div>
+				</div>
+				<div class="row">
+					<div class="order-field">email</div> :
+					<div class="value" style="text-transform: none">{{order.customer.email}}</div>
+				</div>
+				<div class="row">
+					<div class="order-field">Status</div> :
+					<div class="value" style="text-transform: none">{{order.status}}</div>
+				</div>
+				<div class="row">
+					<div class="order-field">address</div> 	:
+					<div class="value">{{order.customer.address}}</div>
+				</div>
+			</div>
+			<div class="order-detail">
+				<div class="checkout-wrapper">
+					<h4 style="margin-bottom: 0.5em">
+						Order Description 
+					</h4>
+					<div class="cart-details" >
+										
+					</div>
+				</div>
+			</div>
+			{%if group == 'admin'%}
+			<div align="center">
+				<a href="/order_update/{{order.id}}/">
+					<button class="btn" style="background: Orange">
+						Update
+					</button>
+				</a>
+				<a href="/order_delete/{{order.id}}/">
+					<button class="btn" style="background: red">
+						Delete
+					</button>
+				</a>
+			</div>
+			{%endif%}
+		</div>
+	</div>
+{% endblock%}
+
+{% block scripts%}
+	<script type="text/javascript" src="{%static 'js/order_admin.js'%}"></script>
+{% endblock%}

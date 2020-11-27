@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sgadmin.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'css/customer.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'css/filterForm.css' %}" >
+{% endblock%}
+{% block content%}
+	<div class="sgadmin-wrapper2">
+		<h1 align="center">PRODUCTS</h1>
+		<div class="filters filters2">
+			<h3>Filters</h3>
+			<form action="">
+				<div>
+					<label>{{myfilter.form.Product_id.label}}</label>
+					{{myfilter.form.Product_id}}
+					{{myfilter.form.Product_id.errors}}
+				</div>
+				<div>
+					<label>{{myfilter.form.name.label}}</label>
+					{{myfilter.form.name}}
+					{{myfilter.form.name.errors}}
+				</div>
+				<div>
+					<label>Quantity above (in grams)</label>
+					{{myfilter.form.quantity_start}}
+					{{myfilter.form.quantity_start.errors}}
+				</div>
+				<div>
+					<label>Quantity below (in grams)</label>
+					{{myfilter.form.quantity_end}}
+					{{myfilter.form.quantity_end.errors}}
+				</div>
+				<div>
+					<label>Product create after date (mm/dd/yyyy)</label>
+					{{myfilter.form.date_start}}
+					{{myfilter.form.date_start.errors}}
+				</div>
+				<div>
+					<label>Order Placed before date</label>
+					{{myfilter.form.date_end}}
+					{{myfilter.form.date_end.errors}}
+				</div>
+				<div>
+					<label>Is Special</label>
+					{{myfilter.form.isSpecial}}
+					{{myfilter.form.isSpecial.errors}}
+				</div>
+				<div>
+					<label>Is Featured</label>
+					{{myfilter.form.isFeatured}}
+					{{myfilter.form.isFeatured.errors}}
+				</div>
+				<div style="display: block">
+					<button class="btn" style="background: rgb(238, 121, 11);">Search</button>	
+				</div>
+			</form>
+			<h3 style="margin: 1.5em 0em 0em 0em"> Filter Results</h3>
+		</div>
+		{%if products%}
+		<div class="list-wrapper">
+			<div class="list-row">
+				<div class="list-col1">
+					<span>id</span>
+				</div>
+				<div class="list-col2">
+					<span>name</span>
+				</div>
+				<div class="list-col3" id="emailTitle">
+					<span>Actual/Discount Rate</span>
+				</div>
+				<div class="list-col4" style="color: black">
+					<span>Full Detail</span>
+				</div>
+				<div class="list-col5">
+					<span>Image</span>
+				</div>
+			</div>
+			{% for item in products%}
+			<div class="list-row">
+				<div class="list-col1">
+					<span>{{item.id}}</span>
+				</div>
+				<div class="list-col2">
+					<span>{{item.name}}</span>
+				</div>
+				<div class="list-col3">
+					<span style="color: grey;text-decoration:line-through">${{item.actual_price}}</span>/<span style="font-weight: bold;color: green">${{item.discount_price}}</span>
+				</div>
+				<div class="list-col4">
+					<a href="/product/{{item.id}}">
+						<button class="btn"   style="background: orange;padding: 5px;margin:0px">Click</button>
+					</a>
+				</div>
+				<div class="list-col5">
+						<a href="{{item.image.url}}">
+							<button class="btn" style="background: #27bbf5;padding: 5px;margin:0px">View</button>
+						</a>
+					</div>
+					
+				
+			</div>
+			{% endfor%}
+		</div>
+		{%else%}
+		<h1 style="color:grey">No Product is Found</h1>
+		{%endif%}
+	</div>
+	
+	
+{% endblock%}

@@ -16,6 +16,15 @@ Including another URLconf
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('register/',views.register,name="register"),
-    path('login/',views.login,name="login"),
+    path('register/', views.register, name="register"),
+    path('login/', views.login, name = "login"),
+    path('logout/', views.logout_page, name = "logout"),
+    path('profile/', views.profile, name = "profile" ),
+    path('sgadmin/', views.sgadmin, name =  "sgadmin"),
+    path('customers/', views.customers, name="customers"),
+    path('customer/<int:pk>/', views.customer, name="customer"),
+    path('customer_update/<int:pk>/', views.customer_update, name="customer_update"),
+    path('customer_delete/<int:pk>/', views.customer_delete, name="customer_delete"),
+    path('customer_create/', views.customer_create, name="customer_create"),
+    path('all_products/', views.all_products, name="all_products")
 ]

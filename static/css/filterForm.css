@@ -1,0 +1,62 @@
+.filters{
+	width: 100%;
+	margin: 2em auto;
+	background-color: none;
+}
+.filters h3{
+	display: inline-block;
+	border-bottom: 2px solid rgb(238, 121, 11);
+	margin-bottom:0.5em;
+}
+.filters form{
+	display: flex;
+	flex-wrap: wrap;
+}
+.filters label{
+	color: rgb(238, 121, 11);
+	font-weight:bold;
+	font-size: 12px;
+	display: block;
+}
+.filters form input{
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #27bbf5;
+	outline: none;
+	font-size: 16px;
+	line-height: 2em;
+}
+.filters form select{
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #27bbf5;
+	outline: none;
+	font-size: 16px;
+	line-height: 2em;
+	margin-top: 0.5em;	
+}
+.filters form div{
+	display: inline-block;
+	margin-bottom: 0.25em;
+	width: 100%;
+	max-width: 300px;
+}
+.filters2{
+	background: none;
+}
+
+.errorlist{
+	color: red;
+	list-style: none;
+}
+@media (min-width: 450px){
+	.filters form div{
+		max-width:250px;
+		margin-right:1em;
+	}
+	.filters {
+
+		margin-bottom: 0px;
+		background-color:none!important;
+	}
+}

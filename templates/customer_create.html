@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/order.css'%}" />
+{%endblock%}
+{% block content%}
+	<div class="form2-wrapper" >
+		
+		<form class="form2" method="POST" action="" id="orderForm">{% csrf_token%}
+				<h3>Create a new customer</h3>
+			<div>
+				<label class="form2-label">{{form.user.label}}</label>
+				{{form.user}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.name.label}}</label>
+				{{form.name}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.phone.label}}</label>
+				{{form.phone}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.email.label}}</label>
+				{{form.email}}
+			</div>
+			<div>
+				<label class="form2-label">{{form.address.label}}</label>
+				{{form.address}}
+			</div>
+			
+			<div>
+					<label class="form2-label">{{form.profile_pic.label}}</label>
+					{{form.profile_pic}}
+			</div>
+			<div style="margin-bottom: 0px;text-align: center;">
+				<button class="btn btn-bkg" type="submit" id="submitBtn">Create</button>
+				
+			</div>
+			
+		</form>
+	</div>
+{% endblock%}

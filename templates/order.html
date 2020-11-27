@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static%}
+{%block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/order.css'%}" />
+{%endblock%}
+{% block content%}
+	<div class="form2-wrapper" >
+		<h2 style="text-align: center;color:grey">One more Step before Ordering...</h2>
+		<form class="form2" method="POST" action="" id="orderForm">{% csrf_token%}
+				<h3>Enter Your Address</h3>
+			<div>
+				<label class="form2-label">House No</label>
+				<input type="text" placeholder="Enter House No." required name="house">
+			</div>
+			<div>
+				<label class="form2-label">Street No</label>
+				<input type="text" placeholder="Enter Street No" required name="street">
+			</div>
+			<div>
+				<label class="form2-label">Locality</label>
+				<input type="text" placeholder="Locality" required name="locality">
+			</div>
+			<div style="display: flex;justify-content: space-between;">
+				<div style="width: 40%">
+					<label class="form2-label">City</label>
+					<input type="text" placeholder="City" required name="city">
+				</div>
+				<div style="width: 40%">
+					<label class="form2-label">PinCode</label>
+					<input type="number" placeholder="PinCode" required name="pincode">
+				</div>
+			</div>
+			<div>
+					<label class="form2-label">Land Mark</label>
+					<input type="text" placeholder="Enter Land Mark" required name="landmark">
+			</div>
+			<div style="margin-bottom: 0px;text-align: center;">
+				<button class="btn btn-bkg" type="submit" id="submitBtn">Place Order</button>
+			</div>
+			
+		</form>
+	</div>
+{% endblock%}
+
+{% block scripts%}
+	<script type="text/javascript" src="{% static 'js/order.js'%}"></script>
+{% endblock%}

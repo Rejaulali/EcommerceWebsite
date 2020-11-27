@@ -26,8 +26,14 @@
         </li>
         <li class="profile">
           <img
-            src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png"
-            title="Your profile"
+            src="
+            {%if request.user.customer.profile_pic.url%}
+            {{request.user.customer.profile_pic.url}}
+            {%else%}
+            https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png
+            {%endif%}
+            "
+            title="{{request.user}}"
           />
         </li>
         
@@ -41,7 +47,7 @@
               src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png"
               title="Your profile"
             />
-            <h2>Your Name</h2>
+            <h2>{{request.user}}</h2>
           </li>
           <h3 class="nav-header">Menu Links</h3>
           <li><a href="#" class="active">Home</a></li>
@@ -55,7 +61,18 @@
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Log In</a></li>
+          <li>
+            {% if request.user.is_authenticated %}
+              <a href="/logout">
+              Log out
+              </a>
+            {% else%}
+              <a href="/login">
+                Login
+              </a>
+            {% endif%}
+            
+          </li>
         </div>
 
         <li class="search-box">

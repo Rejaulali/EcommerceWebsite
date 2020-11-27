@@ -1,0 +1,153 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block stylesheets%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sgadmin.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'css/filterForm.css' %}" >
+{% endblock%}
+{%block content%}
+	<div class="sgadmin-wrapper">
+		<div class="info-card">
+			<a href="#order">
+				<div class="number-part" style="background: #42f5cb">
+					<span class="number">
+						{{orders_length}}
+					</span>
+				</div>
+				<div class="text-part" style="background:#0acfa1">
+					<span class="text">
+						orders
+					</span>
+				</div>
+			</a>
+		</div>
+		<div class="info-card">
+			<a href="/product_list">
+				<div class="number-part" style="background: #2be0ed">
+					<span class="number">
+						{{products_length}}
+					</span>
+				</div>
+				<div class="text-part" style="background:#10b8c4">
+					<span class="text">
+						Products
+					</span>
+				</div>
+			</a>
+		</div>
+		<div class="info-card">
+			<a href="/customers">
+				<div class="number-part" style="background: #30a3e3">
+					<span class="number">
+						{{customers_length}}
+					</span>
+				</div>
+				<div class="text-part" style="background:#087ebf">
+					<span class="text">
+						Customers
+					</span>
+				</div>
+			</a>
+		</div>
+		<div class="info-card">
+			<a href="#order">
+				<div class="number-part" style="background: #345fed">
+					<span class="number">
+						{{pending_orders_length}}
+					</span>
+				</div>
+				<div class="text-part" style="background:#2a3ae8">
+					<span class="text">
+						Pending Orders
+					</span>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="separator"></div>
+	<div class="sgadmin-wrapper2" id='order'>
+		<h1 align="center">ORDERS</h1>
+		<div class="filters filters2">
+			<h3>Filters</h3>
+
+			<form action="">
+				<div>
+					<label>{{myfilter.form.Order_id.label}}</label>
+					{{myfilter.form.Order_id}}
+					{{myfilter.form.Order_id.errors}}
+				</div>
+				<div>
+					<label>{{myfilter.form.status.label}}</label>
+					{{myfilter.form.status}}
+					{{myfilter.form.status.errors}}
+				</div>
+				<div>
+					<label>Order Placed after date (mm/dd/yyyy)</label>
+					{{myfilter.form.start_date}}
+					{{myfilter.form.start_date.errors}}
+				</div>
+				<div>
+					<label>Order Placed before date</label>
+					{{myfilter.form.end_date}}
+					{{myfilter.form.end_date.errors}}
+				</div>
+				<div style="display: block">
+					<button class="btn" style="background: rgb(238, 121, 11);">Search</button>	
+				</div>
+			</form>
+			<h3 style="margin: 1.5em 0em 0em 0em"> Filter Results</h3>
+		</div>
+		{%if orders%}
+		<div class="list-wrapper" style="margin-top: 0;">
+			<div class="list-row">
+				<div class="list-col1">
+					<span>id</span>
+				</div>
+				<div class="list-col2">
+					<span>date</span>
+				</div>
+				<div class="list-col3">
+					<span>status</span>
+				</div>
+				<div class="list-col4" style="color: black">
+					<span>Bill</span>
+				</div>
+				<div class="list-col5">
+					<span>Action</span>
+				</div>
+			</div>
+			{% for item in orders%}
+			<div class="list-row">
+				<div class="list-col1">
+					<span>{{item.id}}</span>
+				</div>
+				<div class="list-col2">
+					<span>{{item.date_created|date:"d-m-y"}}</span>
+				</div>
+				<div class="list-col3">
+					<span style="color: 
+						{%if item.status == 'Pending' %}
+							red
+						{%elif item.status == 'Out for Delivery'%}
+							orange
+						{%else%}
+							green
+						{%endif%}
+					" 
+					>{{item.status}}</span>
+				</div>
+				<div class="list-col4">
+					<span class="green-bold">${{item.order_bill}}</span>
+				</div>
+				<div class="list-col5">
+					<a href="/order_admin/{{item.id}}">
+						<button class="btn" style="background: #27bbf5;padding: 5px;margin:0px">View</button>
+					</a>
+				</div>
+			</div>
+			{% endfor%}
+		</div>
+		{%else%}
+		<h1 style="color: grey;">No one ordered Yet :-(</h1>
+		{%endif%}
+	</div>
+{%endblock%}

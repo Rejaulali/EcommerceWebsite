@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'productDisplay',
     'handle_orders',
-    'accounts'
+    'accounts',
+
+    'django_filters',
 ]
 
 MIDDLEWARE = [

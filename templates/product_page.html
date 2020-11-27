@@ -5,7 +5,7 @@
 {% endblock%}
 {% block content%}
 	<div class="main" align="center">
-		<div class="product product2">
+		<div class="product product2" style="margin:2em 0em 2em 0em">
           <div class="image product-image">
             <img src="/media/{{product.image}}" style="object-fit: none;"/>
           </div>
@@ -45,5 +45,26 @@
 	          </div>	
           </div>
     </div>
+    {% if group == 'admin'%}
+    <div style="margin:2em 0 2em 0">
+      <a href="/product_update/{{product.id}}">
+        <button class="btn" style="background: Orange">Update</button>
+      </a>
+      <button class="btn" id="deleteBtn" style="background: Red">Delete</button>
+    </div>
+    {%endif%}
 	</div>
 {% endblock%}
+
+
+{%block scripts%}
+  <script type="text/javascript">
+    let deleteBtn = document.querySelector('#deleteBtn')
+    deleteBtn.addEventListener('click',()=>{
+      value = confirm("do you really want to delete '{{product.name}}'")
+      if(value){
+        window.location.href = '/product_delete/{{product.id}}'
+      }
+    })
+  </script>
+{%endblock%}

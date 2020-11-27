@@ -56,6 +56,11 @@ const checkout = () =>{
 		checkoutList.appendChild(endRow)	
 		let totalOverview = document.querySelector("#totalOverview")
 		totalOverview.innerHTML = `$${finalTotal}`
+
+		let orderBtn = document.querySelector('#orderBtn')
+		orderBtn.addEventListener('click',()=>{
+			 window.location = `/order/${finalTotal}`
+		})
 	}
 	else{
 		checkoutWrapper.innerHTML =`
@@ -66,6 +71,8 @@ const checkout = () =>{
 			</div>
 		`
 	}
+
+	
 	
 
 }

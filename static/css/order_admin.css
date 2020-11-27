@@ -1,0 +1,18 @@
+.form2-wrapper{
+	width: 90%;
+	margin:1em auto;
+	max-width: 425px;
+}
+.row{
+	display: flex;
+	margin-bottom: 0.5em;
+	padding-left: 12px;
+}
+.order-field{
+	width: 67px;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+.value{
+	text-transform: capitalize;
+}

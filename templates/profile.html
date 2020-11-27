@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css'%}" />
+{% endblock%}
+
+{% block content %}
+	<div class="profile-order-wrapper" >
+		<div class="profile-container">
+			<div class="image-container">
+				<div class="circular-image"
+					style = "background-image:url('{{request.user.customer.profile_pic.url}}'); "
+				>
+					<img src="https://us.123rf.com/450wm/tifani1/tifani11807/tifani1180700562/106552288-camera-icon-vector-illustration-on-black-background.jpg?ver=6"/>
+				</div>
+				<div class="name">
+					<span>{{request.user}}</span>	
+				</div>
+			</div>
+			<div class="profile-detail">
+				<div class="field">
+					<div class="icon">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+					</div>
+					<span>:</span>
+					<div class="field-text">
+						<span>{{request.user.customer.email}}</span>
+					</div>
+				</div>
+				<div class="field">
+					<div class="icon">
+						<i class="fa fa-phone-square" aria-hidden="true"></i>
+					</div>
+					<span>:</span>
+					<div class="field-text">
+						<span>{{request.user.customer.phone}}</span>
+					</div>
+				</div>
+				<div class="field">
+					<div class="icon">
+						<i class="fa fa-map-marker" aria-hidden="true"></i>
+					</div>
+					<span>:</span>
+					<div class="field-text">
+						<span>{{request.user.customer.address}}</span>
+					</div>
+				</div>
+				<p class="edit-detail">
+					<a id="editButton"><i class="fa fa-pencil" aria-hidden="true"></i> Edit detail</a>
+				</p>
+			</div>
+		</div>
+		<div class="order-container">
+			<div class="Table-heading">
+				<h2>Recent-orders</h2>
+			</div>
+			{% if orders %}
+			<div class="order-overview">
+				<div>Total Orders : <span style="color:black">6</span></div>
+				<div>Delivered :  <span style="color:black">4</span></div>
+			</div>
+			<div class="order-table">
+				<div class="order-table-row">
+					<div class="order-table-column">Id</div>
+					<div class="order-table-column">Status</div>
+					<div class="order-table-column">Date</div>
+					<div class="order-table-column">Bill</div>
+				</div>
+				{% for item in orders%}
+				<a href="/order_profile/{{item.id}}">
+					<div class="order-table-row">
+						<div class="order-table-column">{{item.id}}</div>
+						<div class="order-table-column"
+							style="color:{% if item.status == 'Pending' %}
+								red
+							{% else %}
+								green
+							{%endif%};
+							font-weight: bold;
+							" 	
+						>{{item.status}}</div>
+						<div class="order-table-column">{{item.date_created|date:"d-m-y"}}</div>
+						<div class="order-table-column" style="color:green;font-weight:bold;">${{item.order_bill}}</div>
+					</div>
+				</a>
+				{% endfor%}
+			</div>
+			{%else%}
+				<div style="margin-top:1em">
+					<h3 style="color:grey">You didn't Order anything</h3>
+				</div>
+			{%endif%}
+		</div>
+	</div>
+	<div class="update-form">
+		<form method="POST" action="" enctype="multipart/form-data" id="updateForm">{% csrf_token%}
+			<div class="cross-button cancelButton">X</div>
+			<h3 style="color:white;margin-top: 1em">Update Profile detail</h3>
+			<p>
+				<div class="label">
+					{{form.name.label}}
+				</div>
+				{{form.name}}
+			</p>
+			<p>
+				<div class="label">
+					{{form.phone.label}}
+				</div>
+				{{form.phone}}
+			</p>
+			<p>
+				<div class="label">
+					{{form.email.label}}
+				</div>
+				{{form.email}}
+			</p>
+			<p>
+				<div class="label">
+					{{form.address.label}}
+				</div>
+				{{form.address}}
+			</p>
+			<p>
+				<div class="label">
+					{{form.profile_pic.label}}
+				</div>
+				{{form.profile_pic}}
+			</p>
+			<div align="center">
+				<input type="submit" value="Update"></input>
+				<input type="submit" value="Cancel" class="cancelButton"></input>
+			</div>
+		</form>
+	</div>
+{% endblock%}
+
+{% block scripts%}
+	<script type="text/javascript" src="{% static 'js/profile.js'%}"></script>
+	<script type="text/javascript">
+		
+
+	</script>
+{% endblock%}
