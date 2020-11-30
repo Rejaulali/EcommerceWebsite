@@ -8,18 +8,23 @@ from .filters import ProductFilter
 # Create your views here.
 def index(request):
     p = product.objects.all()
+    myfilter2 = ProductFilter(request.GET,queryset=p)
     context ={
-        "product":p
+        "product":p,
+        "myfilter2":myfilter2
     }    
     return render(request,'index.html',context)
 
 def product_search_page(request,text = "none"):
 	if(request.method == "POST"):
 		search_item = request.POST.get('category','')
-		query = product.objects.filter(category = search_item)
+		p = product.objects.all()
+		myfilter2 = ProductFilter(request.POST,queryset=p)
+		query = myfilter2.qs
 		context ={
 			"filtered_products": query,
 			"search_item":search_item,
+			"myfilter2":myfilter2
 		}
 	else:
 		query = product.objects.filter(category = text)

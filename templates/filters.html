@@ -1,16 +1,5 @@
-{% extends 'base.html' %}
-{% load static%}
-{% block stylesheets %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/product-search-page.css'%}" />
-{% endblock%}
-{% block content %}
-  {% if filtered_products %}
-      <div class="main-part" style="justify-content: center;">
-        <h2 >Result for {{search_item}}</h2>
-      </div>        
-  {% endif%}
-	<div class="main-part">
-    <div class="filter-wrapper">
+{% block filters%}
+<div class="filter-wrapper">
         <div class="filters">
           <div class="filter-btn-wrapper">
             <div class="filter-btn">
@@ -21,13 +10,12 @@
               <button id="cuisine"><span>cuisine <i class="fa fa-sort-desc" aria-hidden="true"></i></span></button>
             </div>
           </div>
-          <form class="filterForm" id="productSearch2">
-            
+          <form class="filterForm">
             <div class="filter-search-box">
               <h4>Search Here..</h4>
               <div class="search-box" style="display: flex;justify-content: space-between;">
-                <input type="text"  style="width:inherit"/>
-                <a class="btn" style="background: white;color: rgb(206, 75, 0);">
+                <input type="text" placeholder="Search Product" style="width:inherit"/>
+                <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg" style="background: white;color: rgb(206, 75, 0);">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
               </div>
@@ -36,20 +24,8 @@
               <h4>price-range</h4>
               <div class="price-slider-wrapper">
                 <div class="selected-range">
-                  $<span class="min-price" id="minPrice">
-                    {% if myfilter2.form.discount_start.value == 0 or myfilter2.form.discount_start.value == None%}
-                    0
-                    {%else%}
-                    {{myfilter2.form.discount_start.value}}
-                    {%endif%}
-                  </span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;
-                  $<span class="max-price" id="maxPrice">
-                    {% if myfilter2.form.discount_end.value == 0 or myfilter2.form.discount_end.value == None%}
-                      100
-                    {%else%}
-                      {{myfilter2.form.discount_end.value}}
-                    {%endif%}
-                  </span>
+                  $<span class="min-price">0</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;
+                  $<span class="max-price">6000</span>
                 </div>
                 <div class="priceSlider">
                 </div>
@@ -105,57 +81,8 @@
                 <input type="checkbox" />&nbsp;&nbsp;<span>Maharastra</span>
               </div>
             </div>
-            <button class="filtersubmit" type="submit" id="submitFilterBtn2">done</button>
+            <button class="filtersubmit">done</button>
           </form>
         </div>
       </div>
-    <div style="display: flex;flex-wrap: wrap;">
-			{% for item in filtered_products%}
-             <div class="product">
-                      <div class="image">
-                        <img src="/media/{{item.image}}" style="object-fit: none;"/>
-                        <p class="title"> 
-                          {{item.name}}                     
-                        </p>
-                        <div class="quick-view-wrapper">
-                          <a href="/product/{{item.id}}">
-                            <div class="quick-view btn">
-                              Quick View
-                            </div>
-                          </a>
-                        </div>
-                        <div class="badge">
-                          <span>New</span>
-                        </div>
-                      </div>
-                      <h4>
-                        {{item.name}}, {{item.quantity}}g
-                      </h4>
-                      <p class="rate">
-                        <span class="discount-rate">
-                          ${{item.discount_price}}
-                        </span>
-                        <span class="actual-rate">
-                          ${{item.actual_price}}
-                        </span>
-                      </p>
-                      <div class="add-to-cart-container">
-                        <button class="add-to-cart btn">
-                          <span>Add To Cart</span>
-                        </button>
-                      </div>
-                    </div> 
-                    {% empty %}
-                    <h2 id="fallback-result" align="center">Sorry, No Product found related to {{search_item}} Category</h2>
-      {% endfor%}		
-    </div>
-	</div>
-
-{% endblock content %}
-
-{%block scripts%}
-      <script src="{% static 'js/priceSlider.js'%}"></script>
-      <script src="{% static 'js/displayFilters.js'%}"></script>
-      <script src="{% static 'js/sidefilter.js'%}"></script>
-
-{%endblock%}
+  {%endblock%}

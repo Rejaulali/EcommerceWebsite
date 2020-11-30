@@ -4,8 +4,11 @@ from .models  import *
 class ProductFilter(django_filters.FilterSet):
 	Product_id = django_filters.NumberFilter(field_name ='id', lookup_expr = 'iexact')
 	name = django_filters.CharFilter(field_name = 'name',lookup_expr='icontains')
+	category = django_filters.CharFilter(field_name = 'category',lookup_expr='icontains')
 	quantity_start = django_filters.NumberFilter(field_name='quantity', lookup_expr = 'gte')
 	quantity_end = django_filters.NumberFilter(field_name='quantity', lookup_expr = 'lte')
+	discount_start = django_filters.NumberFilter(field_name='discount_price', lookup_expr = 'gte')
+	discount_end = django_filters.NumberFilter(field_name='discount_price', lookup_expr = 'lte')
 	isFeatured = django_filters.BooleanFilter(field_name='isFeatured')
 	isSpecial = django_filters.BooleanFilter(field_name='isSpecial')
 	date_start = django_filters.DateFilter(field_name='date', lookup_expr = 'gte')

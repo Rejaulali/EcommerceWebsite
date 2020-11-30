@@ -1,7 +1,7 @@
 {%load static%}
+{% load auth_extras%}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>SuperGrocery</title>
 </head>
-
 <body>
   <div class="wrapper">
     <div class="toplabel">
@@ -77,7 +76,10 @@
 
         <li class="search-box">
           <form method="post" action="/product_search_page/random/" id="productSearch">{% csrf_token %}
-            <input type="text" placeholder="Search Product" id="productSearchInput" name="category"/>
+            <!--<input type="text" placeholder="Search Product" id="productSearchInput" name="category"/>-->
+            {{myfilter2.form.discount_start}}
+            {{myfilter2.form.discount_end}}
+            {{myfilter2.form.category}}
             <a class="btn">
               <i class="fa fa-search" aria-hidden="true"></i>
             </a>
@@ -96,6 +98,16 @@
         </li>
       </ul>
     </nav>
+    {%if request.user|has_group:"admin"%}
+    <div align="center">
+      <a href="/sgadmin">
+        <div class="admin-panel-btn" class="btn">
+          <span>ADMIN PANEL</span>
+        </div>  
+      </a>
+    </div>
+    
+    {%endif%}
     {% block content %}
 
     {% endblock%}
@@ -254,3 +266,6 @@
 </body>
 
 </html>
+
+
+

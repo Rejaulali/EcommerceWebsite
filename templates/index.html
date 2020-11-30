@@ -104,12 +104,13 @@
               <button id="cuisine"><span>cuisine <i class="fa fa-sort-desc" aria-hidden="true"></i></span></button>
             </div>
           </div>
-          <form class="filterForm">
+          <form class="filterForm" id="productSearch2">
+            
             <div class="filter-search-box">
               <h4>Search Here..</h4>
               <div class="search-box" style="display: flex;justify-content: space-between;">
-                <input type="text" placeholder="Search Product" style="width:inherit"/>
-                <a class="btn" href="https://www.youtube.com/channel/UCE4Jb1rzItKKMyJDLyit2Pg" style="background: white;color: rgb(206, 75, 0);">
+                <input type="text"  style="width:inherit"/>
+                <a class="btn" style="background: white;color: rgb(206, 75, 0);">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
               </div>
@@ -118,8 +119,8 @@
               <h4>price-range</h4>
               <div class="price-slider-wrapper">
                 <div class="selected-range">
-                  $<span class="min-price">0</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;
-                  $<span class="max-price">6000</span>
+                  $<span class="min-price" id="minPrice">0</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;
+                  $<span class="max-price" id="maxPrice">100</span>
                 </div>
                 <div class="priceSlider">
                 </div>
@@ -467,4 +468,5 @@
     <script src="{% static 'js/displayFilters.js'%}"></script>
     <script src="{% static 'js/topProduct.js'%}"></script>
     <script src="{% static 'js/productSlider.js'%}"></script>
+    <script src="{% static 'js/sidefilter.js'%}"></script>
 {% endblock%}

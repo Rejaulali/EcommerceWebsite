@@ -289,6 +289,24 @@ li:hover > .dropdown{
     transform: rotate(-45deg) translate(5px,-5px);
 }
 
+.admin-panel-btn{
+    display: inline-block;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    font-size: 18px;
+    color: white;
+    margin:0.5em;
+    background:#24aaed ;
+    cursor: pointer;
+
+}
+.admin-panel-btn:hover{
+    background: #1a8fc9
+
+}
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 

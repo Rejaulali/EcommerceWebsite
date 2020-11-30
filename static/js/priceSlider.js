@@ -2,7 +2,7 @@ const rangeSlider = ()=>{
 
     let filter = document.querySelector('.filters');
     let mainPart = document.querySelector('.main-part');
-    let maxWidthPrice = 10000;
+    let maxWidthPrice = 150;
     let minPrice = document.querySelector('.min-price');
     let maxPrice = document.querySelector('.max-price');
     let priceRange = document.querySelector('.priceRange')
@@ -93,7 +93,7 @@ const rangeSlider = ()=>{
                 thumb.style.left = `${parseInt(thumbs[1].style.left)-9}px`
                 
             }
-            minPrice.innerHTML= parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller);
+            minPrice.innerHTML= ` ${parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller)}`;
             
         }
         if(index ==1)
@@ -105,7 +105,7 @@ const rangeSlider = ()=>{
                 thumb.style.left = `${parseInt(thumbs[0].style.left)+9}px`
                 
             }
-            maxPrice.innerHTML= parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller);
+            maxPrice.innerHTML= ` ${parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller)}`;
         }
         highlightRange();
         thumb.classList.add('thumbactive')
@@ -180,7 +180,7 @@ const rangeSlider = ()=>{
                 thumb.style.left = `${parseInt(thumbs[1].style.left)-9}px`
                 
             }
-            minPrice.innerHTML= parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller);
+            minPrice.innerHTML= ` ${parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller)}`;
             
         }
         if(index ==1)
@@ -192,7 +192,7 @@ const rangeSlider = ()=>{
                 thumb.style.left = `${parseInt(thumbs[0].style.left)+9}px`
                 
             }
-            maxPrice.innerHTML= parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller);
+            maxPrice.innerHTML= ` ${parseInt((parseInt(thumb.style.left)+10)/pixelPerDoller)}`;
         }
         highlightRange();
         thumb.classList.add('thumbactive2')

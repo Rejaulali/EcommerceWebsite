@@ -8,7 +8,8 @@ localStorage.setItem('load',false)
 const expandsearch = () => {
     let searchForm = document.querySelector('#productSearch')
     let searchbox = document.querySelector('.search-box');
-    let searchinput = document.querySelector('#productSearchInput');
+    let searchinput = document.querySelector('#id_category');
+    searchinput.placeholder = "Enter Category"
     let brand = document.querySelector('.brand');
     let searchbtn = document.querySelector('.search-box a')
     let closesearchbtn = true;
@@ -119,6 +120,13 @@ updateProductCards()
 
 cartIcon();
 
+const handlePriceRange = ()=>{
+    let discountStart = document.querySelector("#id_discount_start")
+    let discountEnd = document.querySelector("#id_discount_end")
+    discountEnd.type = "hidden"
+    discountStart.type = "hidden"
+}
+handlePriceRange()
 
 
 window.addEventListener('resize',()=>{
