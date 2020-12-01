@@ -45,14 +45,18 @@
 	          </div>	
           </div>
     </div>
-    {% if group == 'admin'%}
-    <div style="margin:2em 0 2em 0">
+    
+    <div style="margin:2em 0 2em 0;
+      display: none;
+      {% if group == 'admin'%}
+      display: block;
+      {%endif%}
+    ">
       <a href="/product_update/{{product.id}}">
         <button class="btn" style="background: Orange">Update</button>
       </a>
       <button class="btn" id="deleteBtn" style="background: Red">Delete</button>
     </div>
-    {%endif%}
 	</div>
 {% endblock%}
 

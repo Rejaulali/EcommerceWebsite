@@ -37,7 +37,7 @@
               <div class="price-slider-wrapper">
                 <div class="selected-range">
                   $<span class="min-price" id="minPrice">
-                    {% if myfilter2.form.discount_start.value == 0 or myfilter2.form.discount_start.value == None%}
+                    {% if myfilter2.form.discount_start.value == 0 or myfilter2.form.discount_start.value == None %}
                     0
                     {%else%}
                     {{myfilter2.form.discount_start.value}}
@@ -109,7 +109,7 @@
           </form>
         </div>
       </div>
-    <div style="display: flex;flex-wrap: wrap;">
+    <div style="display: flex;flex-wrap: wrap;justify-content: center;">
 			{% for item in filtered_products%}
              <div class="product">
                       <div class="image">

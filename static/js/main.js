@@ -16,6 +16,12 @@ const expandsearch = () => {
     let searchaction = false;
     let selectDomOrNot = true;
     searchbtn.addEventListener('click', (e) => {
+        let discountStart = document.querySelector("#id_discount_start")
+        let discountEnd = document.querySelector("#id_discount_end")
+        let minPrice = document.querySelector("#minPrice")
+        let maxPrice = document.querySelector("#maxPrice")
+        discountStart.value = minPrice? minPrice.innerHTML:0
+        discountEnd.value = maxPrice? maxPrice.innerHTML:100
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
             searchinput.style.width = '201px';

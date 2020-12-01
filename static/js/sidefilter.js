@@ -5,7 +5,7 @@ const sidefilter = ()=>{
     let discountStart = document.querySelector("#id_discount_start")
     let discountEnd = document.querySelector("#id_discount_end")
     let minPrice = document.querySelector("#minPrice")
-    let manPrice = document.querySelector("#maxPrice")
+    let maxPrice = document.querySelector("#maxPrice")
     searchinput2.placeholder = "Enter Category"
     searchinput2.value = searchinput1.value
     let searchbtn = document.querySelector('#productSearch2 .search-box a')

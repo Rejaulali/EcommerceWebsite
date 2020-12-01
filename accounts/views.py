@@ -8,6 +8,7 @@ from django.contrib import messages
 from .forms import *
 from handle_orders.models import *
 from productDisplay.models import *
+from productDisplay.filters import *
 from handle_orders.filters import OrderFilter
 from .filters import CustomerFilter
 @unauthenticated_user
@@ -55,6 +56,8 @@ def logout_page(request):
 
 @login_before
 def profile(request):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	form = UpdateProfileForm(instance = request.user.customer)
 	orders = request.user.customer.order_set.all()
 	print(orders)
@@ -65,12 +68,15 @@ def profile(request):
 
 	context={
 		'form':form,
-		'orders':orders
+		'orders':orders,
+		'myfilter2':myfilter2
 	}
 	return render(request,'profile.html',context)
 
 @allowed_users(['admin'])
 def sgadmin(request):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	orders = Order.objects.all()
 	customers = Customer.objects.all()
 	products = product.objects.all()
@@ -84,31 +90,40 @@ def sgadmin(request):
 		'pending_orders_length':pending_orders.count(),
 		'orders':orders.order_by('-id'),
 		'myfilter':myfilter,
+		'myfilter2':myfilter2
 	}
 	return render(request,'sgadmin.html', context)
 
 
 @allowed_users(['admin'])
 def customers(request):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	customers = Customer.objects.all()
 	myfilter = CustomerFilter(request.GET, queryset= customers)
 	customers = myfilter.qs
 	context={
 		'customers':customers,
 		'myfilter':myfilter,
+		"myfilter2":myfilter2
 	}
 	return render(request,'customers.html',context)
 
 @allowed_users(['admin'])
 def customer(request,pk):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	customer = Customer.objects.filter(id = pk)
 	context={
-		'customer':customer[0]
+		'customer':customer[0],
+		'myfilter2':myfilter2
 	}
 	return render(request,'customer.html',context)
 
 @allowed_users(['admin'])
 def customer_update(request,pk):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	form = UpdateProfileForm(instance = Customer.objects.get(id= pk))
 	if request.method == 'POST':
 		form = UpdateProfileForm(request.POST, request.FILES,instance = Customer.objects.get(id =pk))
@@ -117,7 +132,8 @@ def customer_update(request,pk):
 			return redirect('customers')
 	context = {
 		"form":form,
-		"customer":Customer.objects.get(id= pk)
+		"customer":Customer.objects.get(id= pk),
+		"myfilter2":myfilter2
 	}
 	return render(request,'customer_update.html',context)
 
@@ -130,6 +146,8 @@ def customer_delete(request,pk):
 
 @allowed_users(['admin'])
 def customer_create(request):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	form = CreateCustomerForm()
 	if request.method == 'POST':
 		form = CreateCustomerForm(request.POST)
@@ -137,7 +155,8 @@ def customer_create(request):
 			form.save()
 			return redirect('customers')
 	context ={
-		"form":form
+		"form":form,
+		"myfilter2":myfilter2
 	}
 
 	return render(request,'customer_create.html',context)

@@ -28,9 +28,12 @@ def product_search_page(request,text = "none"):
 		}
 	else:
 		query = product.objects.filter(category = text)
+		p = product.objects.all()
+		myfilter2 = ProductFilter(request.POST,queryset=p)
 		context ={
 			"filtered_products": query,
 			"search_item":text,
+			"myfilter2":myfilter2
 		}
 	return render(request,'product_search_page.html',context)
 
@@ -38,12 +41,15 @@ def product_search_page(request,text = "none"):
 def product_page(request,id=0):
 	query_result = product.objects.get(id = id)
 	group = 'None'
+	p = product.objects.all()
+	myfilter2 = ProductFilter(request.GET,queryset=p)
 	if(request.user.groups.exists()):
 		group = request.user.groups.all()[0].name
 
 	context ={
 		"product":query_result,
 		"group": group,
+		"myfilter2":myfilter2
 	}
 	return render(request,'product_page.html',context)
 
@@ -54,13 +60,16 @@ def product_list(request):
 	products = myfilter.qs
 	context = {
 		"products":products,
-		"myfilter":myfilter
+		"myfilter":myfilter,
+		"myfilter2":myfilter,
 	}
 	return render(request, 'product_list.html',context)
 
 
 @allowed_users(['admin'])
 def product_create(request):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	form =  CreateProductForm()
 	if request.method == 'POST':
 		form = CreateProductForm(request.POST,request.FILES)
@@ -71,13 +80,16 @@ def product_create(request):
 		else:
 			print("form is not valid")
 	context = {
-		"form":form
+		"form":form,
+		"myfilter2":myfilter2
 	}
 	return render(request,"product_create.html",context)
 
 
 @allowed_users(['admin'])
 def product_update(request,pk):
+	products = product.objects.all()
+	myfilter2 = ProductFilter(request.GET, queryset = products)
 	form =  CreateProductForm(instance = product.objects.get(id = pk))
 	if request.method == 'POST':
 		form = CreateProductForm(request.POST,request.FILES, instance = product.objects.get(id = pk))
@@ -89,6 +101,7 @@ def product_update(request,pk):
 	context = {
 		"form":form,
 		"product":product.objects.get(id = pk),
+		"myfilter2":myfilter2
 	}
 	return render(request,"product_update.html",context)
 
