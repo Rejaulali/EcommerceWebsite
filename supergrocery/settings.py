@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'productDisplay',
     'handle_orders',
     'accounts',
-
+    'us',
     'django_filters',
 ]
 
