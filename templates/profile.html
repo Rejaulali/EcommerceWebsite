@@ -138,22 +138,6 @@
 			</div>
 		</form>
 	</div>
-	<div class="update-form update-form2">
-		<form method="POST" action="" enctype="multipart/form-data" id="updateForm2">{% csrf_token%}
-			<div class="cross-button cancelButton2">X</div>
-			<h3 style="color:white;margin-top: 1em">Update Profile Image</h3>
-			<p>
-				<div class="label">
-					{{form.profile_pic.label}}
-				</div>
-				<input type='file' accept="image/*" id="imageField">
-			</p>
-			<div align="center">
-				<input type="submit" value="Update" id='submitImage'></input>
-				<input type="submit" value="Cancel" class="cancelButton2"></input>
-			</div>
-		</form>
-	</div>
 {% endblock%}
 
 {% block scripts%}
