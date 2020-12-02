@@ -214,6 +214,9 @@ li:hover > .dropdown{
     .nav-header-profile >img{
         margin-right: 12px;
         width: 70px;
+        height:70px;
+        object-fit:cover;
+        border-radius:50%;
     }
     .dropdown{
         position: relative;

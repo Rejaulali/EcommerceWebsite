@@ -6,10 +6,13 @@
 {% endblock%}
 
 {% block content %}
+
+<input type="hidden" value="profile" id="page">
 	<div class="profile-order-wrapper" >
 		<div class="profile-container">
 			<div class="image-container">
 				<div class="circular-image"
+					title="Click to change this picture" 
 					style = "background-image:url('{{request.user.customer.profile_pic.url}}'); "
 				>
 					<img src="https://us.123rf.com/450wm/tifani1/tifani11807/tifani1180700562/106552288-camera-icon-vector-illustration-on-black-background.jpg?ver=6"/>
@@ -74,7 +77,9 @@
 						<div class="order-table-column"
 							style="color:{% if item.status == 'Pending' %}
 								red
-							{% else %}
+							{% elif item.status == 'Out for Delivery' %}
+								orange
+							{% elif item.status == 'Delivered' %}
 								green
 							{%endif%};
 							font-weight: bold;

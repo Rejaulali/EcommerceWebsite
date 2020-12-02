@@ -41,25 +41,31 @@
               style="color: rgb(238, 121, 11)">G</span>rocery</span>
         </li>
         <div class="nav-links">
-          <li class="profile nav-header-profile">
+          <li class="nav-header-profile">
             <img
-              src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png"
-              title="Your profile"
+              src="
+            {%if request.user.customer.profile_pic.url%}
+            {{request.user.customer.profile_pic.url}}
+            {%else%}
+            https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png
+            {%endif%}
+            "
+              title="{{request.user}}"
             />
-            <h2>{{request.user}}</h2>
+            <h2 style="text-transform: capitalize;">{{request.user}}</h2>
           </li>
           <h3 class="nav-header">Menu Links</h3>
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#">Category</a>
+          <li ><a href="/" id ="home-link">Home</a></li>
+          <li ><a id="category-link">Category</a>
             <ul class="dropdown">
               <li class="dropdown-link"><a href="/product_search_page/oil/">Oil</a></li>
               <li class="dropdown-link"><a href="/product_search_page/nuts/">nuts</a></li>
               <li class="dropdown-link"><a href="/product_search_page/icecream/">Icecream</a></li>
             </ul>
           </li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Profile</a></li>
+          <li ><a href="/contact" id = "contact-link">Contact Us</a></li>
+          <li ><a href="/about" id="about-link">About</a></li>
+          <li ><a href="/profile" id="profile-link">Profile</a></li>
           <li>
             {% if request.user.is_authenticated %}
               <a href="/logout">

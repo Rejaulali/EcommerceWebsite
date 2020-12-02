@@ -4,6 +4,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/product-search-page.css'%}" />
 {% endblock%}
 {% block content %}
+<input type="hidden" value="category" id="page">
   {% if filtered_products %}
       <div class="main-part" style="justify-content: center;">
         <h2 >Result for {{search_item}}</h2>

@@ -32,6 +32,14 @@
 	border-bottom: 2px solid rgb(238, 121, 11);
 	outline: none;
 }
+.form2 textarea{
+	line-height: 25px;
+	font-size: 17px;
+	border:none;
+	width: 100%;
+	border-bottom: 2px solid rgb(238, 121, 11);
+	outline: none;
+}
 
 .btn-bkg{
 	background:  rgb(238, 121, 11)

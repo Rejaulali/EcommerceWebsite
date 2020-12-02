@@ -4,6 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/order.css'%}" />
 {%endblock%}
 {% block content%}
+
+<input type="hidden" value="contact" id="page">
 	<div class="form2-wrapper" >
 		
 		<form class="form2" method="POST" action="" id="orderForm">{% csrf_token%}

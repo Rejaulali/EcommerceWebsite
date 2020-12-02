@@ -135,6 +135,38 @@ const handlePriceRange = ()=>{
 handlePriceRange()
 
 
+const activateLink = () =>{
+    let page = document.querySelector('#page')
+    if(page.value == 'home'){
+        let link = document.querySelector('#home-link')
+        link.classList.add('active')
+        link.style.color = "white"
+    }
+
+    if(page.value == 'category'){
+        let link = document.querySelector('#category-link')
+        link.classList.add('active')
+        link.style.color = "white"
+    }
+    if(page.value == 'contact'){
+        let link = document.querySelector('#contact-link')
+        link.classList.add('active')
+        link.style.color = "white"
+    }
+    if(page.value == 'about'){
+        let link = document.querySelector('#about-link')
+        link.classList.add('active')
+        link.style.color = "white"
+    }
+    if(page.value == 'profile'){
+        let link = document.querySelector('#profile-link')
+        link.classList.add('active')
+        link.style.color = "white"
+    }
+}
+activateLink()
+
+
 window.addEventListener('resize',()=>{
     if(reload){
         location.reload()
