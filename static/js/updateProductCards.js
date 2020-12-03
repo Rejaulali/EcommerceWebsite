@@ -6,7 +6,7 @@ export const updateProductCards =()=>{
     })
     products.forEach((product,index) =>{
         let productAnchorTag = document.querySelector(`#pr${index} .quick-view-wrapper a`)
-        let originalId = productAnchorTag != null ?  productAnchorTag.href.slice(30) : id.slice(2); 
+        let originalId = productAnchorTag != null ?  productAnchorTag.href.slice(45) : id.slice(2); 
         product.classList.add(`product${originalId}`)
         shoppingCart(product.id)
     })
