@@ -3,7 +3,7 @@ const  slidingEffect = ()=>{
     const slide = document.querySelector('.slides')
     const prevbtn = document.getElementById('prevBtn')
     const nextbtn = document.getElementById('nextBtn')
-    const interval = 2000
+    const interval = 5000
     let slides = document.querySelectorAll('.slide')
     let index =1;
     let slideId;
