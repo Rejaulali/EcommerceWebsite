@@ -89,6 +89,7 @@ const expandsearch = () => {
       console.log("touch is detected")
         if(!mouseDetected){  
         searchbtn.addEventListener('touch', (e) => {
+                   e.preventDefault()
         let discountStart = document.querySelector("#id_discount_start")
         let discountEnd = document.querySelector("#id_discount_end")
         let minPrice = document.querySelector("#minPrice")
