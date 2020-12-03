@@ -46,13 +46,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',  
-  #  'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
 ]
 
 ROOT_URLCONF = 'supergrocery.urls'
@@ -84,11 +84,15 @@ WSGI_APPLICATION = 'supergrocery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME' : 'dbiu0qod9u4dvg',
+        'HOST' : 'ec2-75-101-232-85.compute-1.amazonaws.com',
+        'PORT' : 5432,
+        'USER' : 'iquinhtwrmchzf',
+        'PASSWORD' : '2cb7b9f973f7365f0d65462e8266dc0f8b615a370633498bf3402269f1f5f84',
     }
 }
 
-
+#postgres://iquinhtwrmchzf:32cb7b9f973f7365f0d65462e8266dc0f8b615a370633498bf3402269f1f5f84@ec2-75-101-232-85.compute-1.amazonaws.com:5432/dbiu0qod9u4dvg
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
