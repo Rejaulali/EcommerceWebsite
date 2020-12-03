@@ -1,1 +1,1 @@
-web: gunicorn supergrocery.wsgi 
+web: gunicorn supergrocery.wsgi
