@@ -1,1 +1,1 @@
-web: gunicorn supergrocery.wsgi --log-file -
+web: gunicorn supergrocery.wsgi 
