@@ -81,13 +81,13 @@ const expandsearch = () => {
 
 
         }
-    function onMouseMove(e) {
-      document.querySelector('nav').removeEventListener('touchstart', onMouseMove);
+    function onTouchMove(e) {
+      document.querySelector('nav').removeEventListener('touch', onTouchMove);
       localStorage.setItem('mouseDetected',false)
       mouseDetected = getMouseCheck()
       console.log("touch is detected")
         if(!mouseDetected){  
-        searchbtn.addEventListener('touchstart', (e) => {
+        searchbtn.addEventListener('touch', (e) => {
         let discountStart = document.querySelector("#id_discount_start")
         let discountEnd = document.querySelector("#id_discount_end")
         let minPrice = document.querySelector("#minPrice")
@@ -119,13 +119,13 @@ const expandsearch = () => {
             }
 
         })
-        searchinput.addEventListener('touchstart', () => {
+        searchinput.addEventListener('touch', () => {
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
             selectDomOrNot = false
         }
     })
-    document.addEventListener('touchstart', () => {
+    document.addEventListener('touch', () => {
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
 
@@ -145,7 +145,7 @@ const expandsearch = () => {
     }
 
     }
-    document.querySelector('nav').addEventListener('touchstart', onMouseMove);
+    document.querySelector('nav').addEventListener('touch', onTouchMove);
 
 
     /** clicks**/

@@ -46,13 +46,13 @@ const sidefilter = ()=>{
 
 
     function onTouchMove(e) {
-      document.querySelector('.filter-wrapper').removeEventListener('touchstart', onTouchMove);
+      document.querySelector('.filter-wrapper').removeEventListener('touch', onTouchMove);
       localStorage.setItem('mouseDetected',false)
       mouseDetected = getMouseCheck()
       console.log("mouse is detected")
 
         if(!mouseDetected){
-        searchbtn.addEventListener('touchstart', () => {
+        searchbtn.addEventListener('touch', () => {
             if(searchinput2.value != ""){
                 searchinput1.value = searchinput2.value
                 discountStart.value = minPrice.innerHTML
@@ -64,7 +64,7 @@ const sidefilter = ()=>{
             event.preventDefault()
         })
         let searchbtn2 = document.querySelector('#submitFilterBtn2')
-        searchbtn2.addEventListener('touchstart', () => {
+        searchbtn2.addEventListener('touch', () => {
                 if(searchinput2.value != ""){
                     searchinput1.value = searchinput2.value
                     discountStart.value = minPrice.innerHTML
@@ -79,7 +79,7 @@ const sidefilter = ()=>{
         }
 
     }
-    document.querySelector('.filter-wrapper').addEventListener('touchstart',onTouchMove)
+    document.querySelector('.filter-wrapper').addEventListener('touch',onTouchMove)
 
 
     
