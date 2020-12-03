@@ -11,7 +11,7 @@ const expandsearch = () => {
     let searchinput = document.querySelector('#id_category');
     searchinput.placeholder = "Enter Category"
     let brand = document.querySelector('.brand');
-    let searchbtn = document.querySelector('.search-box button')
+    let searchbtn = document.querySelector('.search-box a')
     let closesearchbtn = true;
     let searchaction = false;
     let selectDomOrNot = true;
