@@ -7,7 +7,7 @@ export const shoppingCart =(id, cartIconCalled = false)=>{
     let addToCart = document.querySelector(`#${id} .add-to-cart`)
     let addToCartContainer = document.querySelector(`#${id} .add-to-cart-container`)
     let productAnchorTag = document.querySelector(`#${id} .quick-view-wrapper a`)
-    let originalId = !cartIconCalled ? productAnchorTag.href.slice(30): id.slice(2)
+    let originalId = !cartIconCalled ? productAnchorTag.href.slice(45): id.slice(2)
     if(cart[originalId] != undefined){
         
         addToCartContainer.innerHTML = `<button class="btn minus" id="minus${id}"> - </button>
