@@ -11,7 +11,7 @@ const expandsearch = () => {
     let searchinput = document.querySelector('#id_category');
     searchinput.placeholder = "Enter Category"
     let brand = document.querySelector('.brand');
-    let searchbtn = document.querySelector('.search-box a')
+    let searchbtn = document.querySelector('.search-box button')
     let closesearchbtn = true;
     let searchaction = false;
     let selectDomOrNot = true;
@@ -25,6 +25,7 @@ const expandsearch = () => {
     let mouseDetected = getMouseCheck();
     if(mouseDetected){  
             searchbtn.addEventListener('click', (e) => {
+                e.preventDefault()
             let discountStart = document.querySelector("#id_discount_start")
             let discountEnd = document.querySelector("#id_discount_end")
             let minPrice = document.querySelector("#minPrice")
