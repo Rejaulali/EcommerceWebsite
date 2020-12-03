@@ -11,9 +11,16 @@
 	<div class="profile-order-wrapper" >
 		<div class="profile-container">
 			<div class="image-container">
-				<div class="circular-image"
+				<div class="circular-image
+					{% if request.user.customer.profile_pic%}
+					circular-image2
+					{%else%}
+					switch-to-edit
+					{%endif%}
+
+				"
 					title="Click to change this picture" 
-					style = "background-image:url('{{request.user.customer.profile_pic.url}}'); "
+					style = "background-image:url('{% if request.user.customer.profile_pic %}{{request.user.customer.profile_pic.url}} {% else %}  https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png {%endif%}'); "
 				>
 					<img src="https://us.123rf.com/450wm/tifani1/tifani11807/tifani1180700562/106552288-camera-icon-vector-illustration-on-black-background.jpg?ver=6"/>
 				</div>
@@ -138,6 +145,7 @@
 			</div>
 		</form>
 	</div>
+	{% if form.profile_pic %}
 	<div class="update-form update-form2">
 		<form method="POST" action="" enctype="multipart/form-data" id="updateForm2">{% csrf_token%}
 			<div class="cross-button cancelButton2">X</div>
@@ -154,6 +162,7 @@
 			</div>
 		</form>
 	</div>
+	{% endif%}
 {% endblock%}
 
 {% block scripts%}

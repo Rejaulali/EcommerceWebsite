@@ -198,6 +198,13 @@
 .update-form > form > input:focus{
 	background-color: none;
 }
+.update-form input:-webkit-autofill,
+.update-form input:-webkit-autofill:hover, 
+.update-form input:-webkit-autofill:focus{
+  -webkit-text-fill-color:rgb(255, 255, 255);
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .update-form > form > p{
 	margin-bottom: 0.5em;
 }
