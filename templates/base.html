@@ -81,7 +81,7 @@
         </div>
 
         <li class="search-box">
-          <form method="post" action="/product_search_page/random/" id="productSearch">{% csrf_token %}
+          <form method="post" action="/product_search_page/random/" id="productSearch" onsubmit="return false">{% csrf_token %}
             <!--<input type="text" placeholder="Search Product" id="productSearchInput" name="category"/>-->
             {{myfilter2.form.discount_start}}
             {{myfilter2.form.discount_end}}
