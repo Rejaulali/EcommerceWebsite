@@ -15,7 +15,79 @@ const expandsearch = () => {
     let closesearchbtn = true;
     let searchaction = false;
     let selectDomOrNot = true;
-    searchbtn.addEventListener('click', (e) => {
+    /** checking mouse is present or not*/
+
+    localStorage.setItem('mouseDetected',true)
+    const getMouseCheck =()=>{
+        let check = JSON.parse(localStorage.getItem('mouseDetected'))
+        return check
+    }
+    let mouseDetected = getMouseCheck();
+    if(mouseDetected){  
+            searchbtn.addEventListener('click', (e) => {
+            let discountStart = document.querySelector("#id_discount_start")
+            let discountEnd = document.querySelector("#id_discount_end")
+            let minPrice = document.querySelector("#minPrice")
+            let maxPrice = document.querySelector("#maxPrice")
+            discountStart.value = minPrice? minPrice.innerHTML:0
+            discountEnd.value = maxPrice? maxPrice.innerHTML:100
+            var x = window.matchMedia("(max-width: 535px)");
+            if (x.matches) {
+                searchinput.style.width = '201px';
+                brand.style.display = 'none'
+                searchbtn.style.background = 'white'
+                if (closesearchbtn || searchinput.value == "") {
+                    e.preventDefault();
+                }
+                else{
+
+                    searchForm.submit()
+                }
+                searchaction = true
+                selectDomOrNot = false;
+                closesearchbtn = false;
+                }
+                else{
+                    if(searchinput.value != ""){
+                    searchForm.submit()
+                    }else{
+                        alert("Please Enter Something")
+                    }
+                
+                }
+
+            })
+            searchinput.addEventListener('click', () => {
+            var x = window.matchMedia("(max-width: 535px)");
+            if (x.matches) {
+                selectDomOrNot = false
+            }
+        })
+        document.addEventListener('click', () => {
+            var x = window.matchMedia("(max-width: 535px)");
+            if (x.matches) {
+
+                if (selectDomOrNot) {
+                    searchinput.style.width = '0px';
+                    brand.style.display = 'block'
+                    searchbtn.style.background = 'none'
+                    closesearchbtn = true;
+                }
+                selectDomOrNot = true
+
+            }
+
+        })
+
+
+        }
+    function onMouseMove(e) {
+      document.querySelector('nav').removeEventListener('touchstart', onMouseMove);
+      localStorage.setItem('mouseDetected',false)
+      mouseDetected = getMouseCheck()
+      console.log("touch is detected")
+        if(!mouseDetected){  
+        searchbtn.addEventListener('touchstart', (e) => {
         let discountStart = document.querySelector("#id_discount_start")
         let discountEnd = document.querySelector("#id_discount_end")
         let minPrice = document.querySelector("#minPrice")
@@ -37,23 +109,23 @@ const expandsearch = () => {
             searchaction = true
             selectDomOrNot = false;
             closesearchbtn = false;
-        }else{
-            if(searchinput.value != ""){
-                searchForm.submit()
             }else{
-                alert("Please Enter Something")
-            }
+                if(searchinput.value != ""){
+                searchForm.submit()
+                }else{
+                    alert("Please Enter Something")
+                }
             
-        }
+            }
 
-    })
-    searchinput.addEventListener('click', () => {
+        })
+        searchinput.addEventListener('touchstart', () => {
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
             selectDomOrNot = false
         }
     })
-    document.addEventListener('click', () => {
+    document.addEventListener('touchstart', () => {
         var x = window.matchMedia("(max-width: 535px)");
         if (x.matches) {
 
@@ -68,6 +140,22 @@ const expandsearch = () => {
         }
 
     })
+
+
+    }
+
+    }
+    document.querySelector('nav').addEventListener('touchstart', onMouseMove);
+
+
+    /** clicks**/
+    
+    
+/* touch events for search bar*/
+
+    
+
+
 
     let burger = document.querySelector('.burger');
     let navLinks = document.querySelector('.nav-links')
@@ -102,6 +190,7 @@ const expandsearch = () => {
         cross = !cross;
 
     })
+
 }
 expandsearch()
 
