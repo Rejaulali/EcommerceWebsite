@@ -258,7 +258,7 @@ const activateLink = () =>{
 activateLink()
 
 
-var x = window.matchMedia("(max-width: 535px)");
+var x = window.matchMedia("(max-width: 430px)");
 if(!(x.matches))
 {
     window.addEventListener('resize',()=>{
@@ -270,15 +270,5 @@ if(!(x.matches))
         }
     })
 
-}else{
-    let slide = document.querySelector('.slide-container');
-    slide.addEventListener('resize',()=>{
-        if(reload){
-            location.reload()
-        }
-        else{
-            reload = true;
-        }
-    })
 }
 

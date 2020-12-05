@@ -104,6 +104,7 @@
         </li>
       </ul>
     </nav>
+  <div class="remain-body">
     {%if request.user|has_group:"admin"%}
     <div align="center">
       <a href="/sgadmin">
@@ -263,7 +264,9 @@
         &copy;This webpage is created by Rejaul Ali.
         All  rights are Reserved
     </footer>
+  </div>
     <script type="module" src="{% static 'js/main.js'%}"></script>
+    <script type="module" src="{% static 'js/nav.js'%}"></script>
     {% block scripts%}
 
     {% endblock%}
