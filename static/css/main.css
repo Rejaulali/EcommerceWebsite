@@ -41,7 +41,9 @@ a{
     align-items: center;
     list-style: none;
     border-bottom:1px solid orange;
-    z-index: 10; 
+    z-index: 10;
+    width: 100vh;
+    overflow-x: hidden;
     
 }
 .burger div{

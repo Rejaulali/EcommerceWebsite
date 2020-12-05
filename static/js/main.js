@@ -258,5 +258,12 @@ const activateLink = () =>{
 activateLink()
 
 
-
+window.addEventListener('resize',()=>{
+    if(reload){
+        location.reload()
+    }
+    else{
+        reload = true;
+    }
+})
 
