@@ -258,5 +258,27 @@ const activateLink = () =>{
 activateLink()
 
 
+var x = window.matchMedia("(max-width: 535px)");
+if(!(x.matches))
+{
+    window.addEventListener('resize',()=>{
+        if(reload){
+            location.reload()
+        }
+        else{
+            reload = true;
+        }
+    })
 
+}else{
+    let slide = document.querySelector('.slide-container');
+    slide.addEventListener('resize',()=>{
+        if(reload){
+            location.reload()
+        }
+        else{
+            reload = true;
+        }
+    })
+}
 
