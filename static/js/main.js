@@ -42,7 +42,7 @@ const expandsearch = () => {
                 }
                 else{
 
-                    //searchForm.submit()
+                    searchForm.submit()
                 }
                 searchaction = true
                 selectDomOrNot = false;
